@@ -50,7 +50,7 @@ class Routeur
                 }
                 if ($_GET['page'] == 'inscription')
                 {
-                    $this->ctrlConnexion->route_inscription();
+                    $this->ctrlInscription->route_inscription();
                 }
                 if ($_GET['page'] == 'connexion')
                 {

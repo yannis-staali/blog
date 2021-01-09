@@ -13,7 +13,7 @@ class ControleurAdmin
     // }
 
 // Affiche la liste de tous les billets du blog
-    public function route_Admin() 
+    public function route_admin() 
     {
         // $billets = $this->billet->getBillets();
         // $vue = new Vue("Accueil");

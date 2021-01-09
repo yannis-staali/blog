@@ -1,22 +1,30 @@
 <?php
 
 require_once 'Modele/Billet.php';
-// require_once 'Vue/Vue.php';
 
-class ControleurArticle {
+
+// Il faudra ajouter les commentaires
+class ControleurArticle 
+{
 
     private $billet;
 
-    public function __construct() {
-        // $this->billet = new Billet();
+    public function __construct() 
+    {
+        $this->billet = new Billet();
     }
 
-// Affiche la liste de tous les billets du blog
-    public function route_accueil() {
-        $billets = $this->billet->getBillets();
-        // $vue = new Vue("Accueil");
-        // $vue->generer(array($billets));
-        require 'Vue/vueAccueil.php';
+    public function route_article() 
+    {
+        
+       if(isset($_GET['id'])) 
+       {
+            $id = $_GET['id'];
+            $billets = $this->billet->showBillet($id);
+            //ici ajouter un appel de methode vers une requete de fetch pour les commentaires avec l'id
+       }
+      
+        require 'Vue/vueArticle.php';
     }
 
 }

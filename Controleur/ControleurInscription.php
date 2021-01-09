@@ -1,22 +1,38 @@
 <?php
 
-require_once 'Modele/Billet.php';
-// require_once 'Vue/Vue.php';
+require_once 'Modele/User.php';
 
-class ControleurInscription {
+class ControleurInscription 
+{
 
-    // private $billet;
+  /**
+   * Controle la page Inscription
+   * Voir eventuellement ajouter un check email
+   * Ajouter check password
+   * Ajouter INSERT DANS BDD
+   * Ajouter password hach etc...
+   */
 
-    public function __construct() {
-        // $this->billet = new Billet();
-    }
+    public function route_inscription() 
+    {
+        if (isset($_POST['submit']))
+        {
+            $user = new User();
+            $check = $user->check_login_inscription($_POST['login']);
+            if($check== false)
+            {
+                echo 'login deja pris';
+            }
+            else 
+            {
+                $check = $user->insert($_POST['login'], $_POST['password'], $_POST['email'], '1');   
+                echo $check;
+            }
+            
+    
+        }
 
-// Affiche la liste de tous les billets du blog
-    public function route_accueil() {
-        $billets = $this->billet->getBillets();
-        // $vue = new Vue("Accueil");
-        // $vue->generer(array($billets));
-        require 'Vue/vueAccueil.php';
+        require 'Vue/vueInscription.php';
     }
 
 }

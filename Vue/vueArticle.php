@@ -1,26 +1,19 @@
-<?php $titre = "Article"; ?>
+<?php $titre = "Mon Blog"; ?>
 
-
-<!-- gabarit :-------------------- -->
-<!doctype html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="Contenu/style.css" />
-        <title><?= $titre ?></title>
-    </head>
-    <body>
-        <div id="global">
-            <header>
-                <a href="index.php"><h1 id="titreBlog">ARTICLE ID/h1></a>
-                <p>PAGE UN ARTICLE EN PARTICULIER</p>
-            </header>
-            <div id="contenu">
-                <!-- <?= $contenu ?> -->
-            </div> <!-- #contenu -->
-            <footer id="piedBlog">
-                Blog réalisé avec PHP, HTML5 et CSS.
-            </footer>
-        </div> <!-- #global -->
-    </body>
-</html>
+<?php foreach ($billets as $billet):
+    ?>
+    <article>
+        <header>
+            <!-- <a href="<?= "index.php?page=article&id=" . $billet['id'] ?>"> -->
+                <h1 class="titreBillet"><?= $billet['titre'] ?></h1>
+            </a>
+            <p>Posté par : <?= $billet['login'] ?></p>
+            <p>Le : <?= $billet['date'] ?></p>
+        </header>
+        <p>Categorie : <?= $billet['categorie'] ?></p>
+        <p><?= $billet['article'] ?></p>
+    </article>
+    <hr />
+<?php endforeach; ?>
+<!-- Il faudra ajouter les commentaires et un formulaire d'ajout de commentaire -->
+<!-- Refaire une boucle foreach avec les commentaires -->

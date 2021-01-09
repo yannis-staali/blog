@@ -1,26 +1,38 @@
-<?php $titre = "Connexion"; ?>
+<!DOCTYPE HTML>
 
-
-<!-- gabarit :-------------------- -->
-<!doctype html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="Contenu/style.css" />
-        <title><?= $titre ?></title>
+<html>
+	<head>
+		<title>Connexion</title>
     </head>
-    <body>
-        <div id="global">
-            <header>
-                <a href="index.php"><h1 id="titreBlog">CONNEXION</h1></a>
-                <p>PAGE DE CONNEXION</p>
-            </header>
-            <div id="contenu">
-                <!-- <?= $contenu ?> -->
-            </div> <!-- #contenu -->
-            <footer id="piedBlog">
-                Blog réalisé avec PHP, HTML5 et CSS.
-            </footer>
-        </div> <!-- #global -->
+    
+	<body class="body_home">
+            <!-- Main -->
+        <main class="connexion_main"> 
+            <section class="connexion_box_form">
+				<h1>Connexion</h1>
+				<form action="" method="POST">
+					
+					<div class="log_form">
+					<label><b>login</b></label>
+					<input type="text"  name="login">
+					</div>
+
+					<div class="pass_form">
+					<label><b>Password</b></label>
+					<input type="password" name="password">
+					</div>
+					
+					<div class="submit">
+					<input type="submit" id='submit' name="submit" value="GO">
+					</div>
+
+				</form>
+			</section>
+        </main>    
+
+        <!-- Footer -->
+
+		<!-- Scripts -->
     </body>
+    
 </html>

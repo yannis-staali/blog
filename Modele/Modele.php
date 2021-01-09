@@ -1,11 +1,9 @@
 <?php
 
 /**
- * Classe abstraite Modèle.
+ * Classe abstraite Modele.
  * Centralise les services d'accès à une base de données.
- * Utilise l'API PDO
- *
- * @author Baptiste Pesquet
+ * Connexion + executer requete
  */
 abstract class Model {
 
@@ -16,15 +14,15 @@ abstract class Model {
      * Exécute une requête SQL éventuellement paramétrée
      * 
      * @param string $sql La requête SQL
-     * @param array $valeurs Les valeurs associées à la requête
+     * @param array $params : Les valeurs associées à la requête
      * @return PDOStatement Le résultat renvoyé par la requête
      */
     protected function executerRequete($sql, $params = null) {
         if ($params == null) {
-            $resultat = $this->getBdd()->query($sql); // exécution directe
+            $resultat = $this->getBdd()->query($sql); // exécution directe (ex pour les requetes SELECT)
         }
         else {
-            $resultat = $this->getBdd()->prepare($sql);  // requête préparée
+            $resultat = $this->getBdd()->prepare($sql);  // requête préparée (pour les INSERT etc...)
             $resultat->execute($params);
         }
         return $resultat;
@@ -38,7 +36,7 @@ abstract class Model {
     private function getBdd() {
         // if ($this->bdd == null) {
             // Création de la connexion
-            $this->bdd = new PDO('mysql:host=localhost;dbname=monblog;charset=utf8',
+            $this->bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8',
                     'root', '',
                     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         // }
