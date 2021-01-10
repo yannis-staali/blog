@@ -12,7 +12,8 @@ class Billet extends Model
 
     /** 
      * 
-     * Il faudra rajouter la catégorie et le nom de l'auteur
+     * Il faudra rajouter la catégorie et le nom de l'auteur dans la vue 
+     * Cette methode permet d'afficher les 3 derniers billets pour la page accueil
      */
     public function getBillets() {
         $sql = 'SELECT articles.id, articles.article, articles.date, articles.titre, categories.nom as categorie, utilisateurs.login 
@@ -24,7 +25,10 @@ class Billet extends Model
         $billets = parent::executerRequete($sql); // on utilise la methode du parent
         return $billets;
     }
-    
+
+    /**
+     * Permet d'afficher un billet de blog en particulier
+     */
     public function showBillet($id) {
         $sql = "SELECT articles.article, articles.date, articles.titre, categories.nom as categorie, utilisateurs.login 
                 FROM articles 
@@ -36,22 +40,64 @@ class Billet extends Model
         return $billets;
     }
 
-    /** Renvoie les informations sur un billet
-     * 
-     * @param int $id L'identifiant du billet
-     * @return array Le billet
-     * @throws Exception Si l'identifiant du billet est inconnu
+    /**
+     * Permet de recuperer les catégories du blog
      */
-    // public function getBillet($idBillet) {
-    //     $sql = 'select BIL_ID as id, BIL_DATE as date,'
-    //             . ' BIL_TITRE as titre, BIL_CONTENU as contenu from T_BILLET'
-    //             . ' where BIL_ID=?';
-    //     $billet = $this->executerRequete($sql, array($idBillet));
-    //     if ($billet->rowCount() > 0)
-    //         return $billet->fetch();  // Accès à la première ligne de résultat
-    //     else
-    //         throw new Exception("Aucun billet ne correspond à l'identifiant '$idBillet'");
-    // }
+    public function getcategories()
+    {
+        $sql = "SELECT * FROM categories";
+        $categories = parent::executerRequete($sql); // on utilise la methode du parent
+        return  $categories;
+    }
 
+    /**
+     * Permet juste de compter le nombre d'articles de telle categorie
+     */
+    public function count_articles_cat($categorie)
+    {
+        $sql = "SELECT* FROM articles WHERE id_categorie = $categorie";
+        $count = parent::executerRequete($sql); // on utilise la methode du parent
+        $count = $count->rowCount();
+        return $count;
+    }
 
+    /**
+     * Recupère les articles après filtre de categorie
+     */
+    public function get_art_bycategorie($categorie, $offset)
+    {
+        $sql = "SELECT articles.id, articles.article, articles.date, articles.titre
+                FROM articles 
+                WHERE id_categorie = $categorie
+                ORDER BY date desc 
+                LIMIT 5
+                OFFSET $offset";
+        $request = parent::executerRequete($sql); // on utilise la methode du parent
+        return $request;
+    }
+
+    /**
+     * Compte le nombre d'articles total
+     */
+    public function count_articles()
+    {
+        $sql = "SELECT* FROM articles";
+        $count = parent::executerRequete($sql); // on utilise la methode du parent
+        $count = $count->rowCount();
+        return $count;
+    }
+
+    /**
+     * Recupère les articles après filtre de categorie
+     */
+    public function get_art_byoffset($offset)
+    {
+        $sql = "SELECT articles.id, articles.article, articles.date, articles.titre
+                FROM articles 
+                ORDER BY date desc 
+                LIMIT 5
+                OFFSET $offset";
+        $request = parent::executerRequete($sql); // on utilise la methode du parent
+        return $request;
+    }
 }
