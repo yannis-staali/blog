@@ -100,4 +100,49 @@ class Billet extends Model
         $request = parent::executerRequete($sql); // on utilise la methode du parent
         return $request;
     }
+
+    /**
+     * Permet de recuperer les categories pour la page creer_article
+     * Et les placer dans le déroulant select
+     */
+    public function get_categories()
+    {
+        $sql = "SELECT * FROM categories";
+        $request = parent::executerRequete($sql); // on utilise la methode du parent
+         $request =  $request->fetchAll(PDO::FETCH_ASSOC);
+        // $request =  $request->fetchColumn(1);
+
+        return $request;
+    }
+
+    /**
+     * Permet d'inseret un nouvel article
+     */
+    public function insert_billet($article, $id_utilisateur, $id_categorie, $date, $titre)
+    {
+        $sql = "INSERT INTO articles (article, id_utilisateur, id_categorie, date, titre)
+                VALUE (?, ?, ?, ?, ?)";
+        $request = parent::executerRequete($sql, array($article, $id_utilisateur, $id_categorie, $date, $titre)); // on utilise la methode du parent
+        return  $request;
+    }
+
+    /**
+     * Permet d'inserer une nouvelle categorie
+     */
+    public function insert_categorie($nomcat)
+    {
+        $sql = "INSERT INTO categories (nom)
+                VALUE (?)";
+        $request = parent::executerRequete($sql, array($nomcat)); // on utilise la methode du parent
+    }
+
+    public function get_id_categorie($nomcat)
+    {
+        $sql = "SELECT id FROM categories WHERE nom = '$nomcat' ";
+        // $sql = "SELECT * FROM categories ";
+
+        $request2 = parent::executerRequete($sql); // on utilise la methode du parent
+        $retour = $request2->fetch(PDO::FETCH_ASSOC);
+        return $retour;
+    }
 }
