@@ -1,7 +1,7 @@
 <?php
 
+require_once 'Modele/Modele.php';
 require_once 'Modele/Billet.php';
-
 
 class ControleurAccueil 
 {

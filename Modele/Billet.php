@@ -136,6 +136,9 @@ class Billet extends Model
         $request = parent::executerRequete($sql, array($nomcat)); // on utilise la methode du parent
     }
 
+    /**
+     * Permet de recuperer l'id d'une categorie 
+     */
     public function get_id_categorie($nomcat)
     {
         $sql = "SELECT id FROM categories WHERE nom = '$nomcat' ";
@@ -144,5 +147,28 @@ class Billet extends Model
         $request2 = parent::executerRequete($sql); // on utilise la methode du parent
         $retour = $request2->fetch(PDO::FETCH_ASSOC);
         return $retour;
+    }
+
+    //ICI PARTIE ADMIN
+
+    /**
+     * Permet à l'admin d'afficher une table
+     */
+    public function select_table()
+    {
+        $sql = "SELECT * FROM categories ";
+        $request = parent::executerRequete($sql); // on utilise la methode du parent
+        $retour = $request->fetchAll(PDO::FETCH_ASSOC);
+        return $retour;
+    }
+
+    /**
+     * Permet de supprimer une ligne de la table
+     */
+    public function delete_line($table, $id)
+    {
+        $sql = "DELETE FROM $table WHERE id = $id ";
+        $request = parent::executerRequete($sql); // on utilise la methode du parent
+
     }
 }

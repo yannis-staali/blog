@@ -1,23 +1,30 @@
 <?php
-
-// require_once 'Modele/Billet.php';
-// require_once 'Vue/Vue.php';
+require_once 'Modele/Billet.php';
 
 class ControleurAdmin 
 {
 
-    // private $billet;
-
-    // public function __construct() {
-    //     $this->billet = new Billet();
-    // }
-
-// Affiche la liste de tous les billets du blog
     public function route_admin() 
     {
-        // $billets = $this->billet->getBillets();
-        // $vue = new Vue("Accueil");
-        // $vue->generer(array($billets));
+        //on va faire la suite des 4 if et les requtes associées
+        //if isset(GET [choise] = ex commentaires .... )
+        if(isset($_GET['choice']))
+        {
+
+            $table = $_GET['choice'];
+            $objet = new Billet();
+            $recup = $objet->select_table();
+
+        
+        }
+        if(isset($_GET['action']) && $_GET['action'] = 'delete')
+        {
+            $table = $_GET['choice'];
+            $id = $_GET['id'];
+            $delete = $objet-> delete_line($table, $id);
+
+            //ajouter un refresh
+        }
         require 'Vue/vueAdmin.php';
     }
 
