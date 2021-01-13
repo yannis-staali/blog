@@ -22,6 +22,9 @@ class ControleurArticle
             $id = $_GET['id'];
             $billets = $this->billet->showBillet($id);
             //ici ajouter un appel de methode vers une requete de fetch pour les commentaires avec l'id
+
+            $commentaires = $this->billet->showCommentaire($id);
+
        }
       
         require 'Vue/vueArticle.php';

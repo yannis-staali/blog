@@ -30,7 +30,7 @@ class Billet extends Model
      * Permet d'afficher un billet de blog en particulier
      */
     public function showBillet($id) {
-        $sql = "SELECT articles.article, articles.date, articles.titre, categories.nom as categorie, utilisateurs.login 
+        $sql = "SELECT articles.article, articles.date, articles.titre, categories.nom as categorie, utilisateurs.login
                 FROM articles 
                 INNER JOIN categories on categories.id = articles.id_categorie
                 INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur
@@ -38,6 +38,20 @@ class Billet extends Model
                 ORDER BY date desc ";
         $billets = parent::executerRequete($sql); // on utilise la methode du parent
         return $billets;
+    }
+
+    /**
+     * Permet d'afficher les commentaires
+     */
+    public function showCommentaire($id)
+    {
+        $sql = "SELECT commentaires.commentaire, commentaires.date, utilisateurs.login
+                FROM commentaires
+                INNER JOIN utilisateurs on commentaires.id_utilisateur = utilisateurs.id 
+                WHERE commentaires.id_article = $id ";
+        $billets = parent::executerRequete($sql); // on utilise la methode du parent
+        return $billets;
+
     }
 
     /**
@@ -154,9 +168,9 @@ class Billet extends Model
     /**
      * Permet à l'admin d'afficher une table
      */
-    public function select_table()
+    public function select_table($table)
     {
-        $sql = "SELECT * FROM categories ";
+        $sql = "SELECT * FROM  $table  ";
         $request = parent::executerRequete($sql); // on utilise la methode du parent
         $retour = $request->fetchAll(PDO::FETCH_ASSOC);
         return $retour;

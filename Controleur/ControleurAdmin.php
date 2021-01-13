@@ -13,9 +13,8 @@ class ControleurAdmin
 
             $table = $_GET['choice'];
             $objet = new Billet();
-            $recup = $objet->select_table();
+            $recup = $objet->select_table($table);
 
-        
         }
         if(isset($_GET['action']) && $_GET['action'] = 'delete')
         {
