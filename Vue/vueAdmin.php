@@ -1,11 +1,16 @@
 <!doctype html>
 <html lang="fr">
+
     <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="Contenu/style.css" />
-        <title><?= $titre ?></title>
+        <title>Admin</title>
+        <!-- inclusion des head -->
+        <?php include_once 'Vue/includes/head.php'?>
     </head>
+
     <body>
+        <!-- Inclusion du header -->
+        <?php include_once 'Vue/includes/header.php'?>
+
         <div id="global">
             <header>
                 <a href="index.php"><h1 id="titreBlog">ADMIN</h1></a>
@@ -21,6 +26,8 @@
             <div id="contenu">
              
              <?php
+
+             //voir pour mettre tout ça dans le controleur
                 
                 // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
                 //ici choix d'afficher les CATEGORIES ---------------------------
@@ -131,20 +138,16 @@
                            header('Refresh:0; index.php?page=admin&choice=commentaires');  
                        }
                   }
-
-                // if(isset($_GET['action']))
-                // {
-                //     header('Refresh:0; index.php?page=admin&choice=utilisateurs');  
-                // }
              ?>
-        <!-- Mettre des if en serie de GET['choice'] -->
-        <!-- Qui vont afficher tel ou tel Morceau de html -->
-        <!-- Les requetes et les variables de contenu se feront dans le controleur -->
+            <!-- Voir pour mettre tout ça dans le controleur --> 
+                
+            </div>  
+        </div>
 
-            </div>
-            <footer id="piedBlog">
-               CECI EST UN FOOTER
-            </footer>
-        </div> <!-- #global -->
+        <!--Inclusion du Footer -->
+        <?php include_once 'Vue/includes/footer.php'?>
+
+        <?php //include_once 'Vue/includes/scripts.php'?>        
+        <script src="Assets/js/app.js"></script> 
     </body>
 </html>

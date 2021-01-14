@@ -1,15 +1,16 @@
-<?php $titre = "Articles"; ?>
-
-
-<!-- gabarit :-------------------- -->
 <!doctype html>
 <html lang="fr">
+
     <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="Contenu/style.css" />
-        <title><?= $titre ?></title>
+        <title>Accueil</title>
+        <!-- inclusion des head -->
+        <?php include_once 'Vue/includes/head.php'?>
     </head>
+
     <body>
+          <!-- Inclusion du header -->
+          <?php include_once 'Vue/includes/header.php'?>
+
         <div id="global">
             <header>
                 <a href="index.php"><h1 id="titreBlog">ARTICLES</h1></a>
@@ -33,6 +34,29 @@
                 endforeach; ?>
             </div>
 
+                <?php
+                //ici morceau de code pour faire la pagination
+                //rajouter un if a chaque fois pour filtrer la categorie
+                if($currentpage >1)
+                {
+                    $precedent = $currentpage -1;
+                    echo "<a href=index.php?page=articles&pagination=$precedent> Page précédente </a>";
+                }
+
+                $j = 2;
+                for($i=2; $i<=$pages; $i++)
+                {
+                    echo "<a href=index.php?page=articles&pagination=$j> Page $j</a>";
+                    $j++;
+                }
+
+                if($currentpage < $pages)
+                {
+                    $suivant = $currentpage +1;
+                    echo "<a href=index.php?page=articles&pagination=$suivant> Page suivante</a>";
+                }
+                ?>
+
             <div>
                 <?php if(isset($bouton_precedent)): echo $bouton_precedent; endif; ?>
             </div>
@@ -42,7 +66,15 @@
             <footer id="piedBlog">
               Ceci est un footer
             </footer>
-        </div> <!-- #global -->
+        </div> 
+
+         <!--Inclusion du Footer -->
+         <?php include_once 'Vue/includes/footer.php'?>
+
+         <!--Inclusion des Scripts -->
+         <?php //include_once 'Vue/includes/scripts.php'?>        
+        <script src="Assets/js/app.js"></script> 
+
     </body>
 </html>
 

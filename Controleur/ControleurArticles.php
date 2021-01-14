@@ -28,43 +28,57 @@ class ControleurArticles {
         else
         {
             $count = $billet->count_articles(); //compte le nombre total d'articles
-            $request = $billet->get_art_byoffset($offset); // recupère les articles en respectant le décalage
+            // $request = $billet->get_art_byoffset($offset); // recupère les articles en respectant le décalage
 
         }
 
         //affichage du bonton precedent
-        if($offset > 1)
-        {
-            if(isset($_GET["categorie"])) 
-            {
-                $cat = $_GET['categorie'];
-                $offset = $offset -5;
-                $bouton_precedent = "<a href=index.php?page=articles&categorie=$cat&start=$offset> Page précédente </a>";
-            }
-            else
-            {
-                $offset = $offset -5;
-                $bouton_precedent = "<a href=index.php?page=articles&start=$offset> Page précédente </a>";
-            }
-        }
+        // if($offset > 1)
+        // {
+        //     if(isset($_GET["categorie"])) 
+        //     {
+        //         $cat = $_GET['categorie'];
+        //         $offset = $offset -5;
+        //         $bouton_precedent = "<a href=index.php?page=articles&categorie=$cat&start=$offset> Page précédente </a>";
+        //     }
+        //     else
+        //     {
+        //         $offset = $offset -5;
+        //         $bouton_precedent = "<a href=index.php?page=articles&start=$offset> Page précédente </a>";
+        //     }
+        // }
 
         //affichage du bouton suivant
-        if($offset + 5 < $count)
-        {
-            if(isset($_GET["categorie"])) 
-            {
-                $cat = $_GET['categorie'];
-                $offset = $offset +5;
-                $bouton_suivant = "<a href=index.php?page=articles&categorie=$cat&start=$offset> Page suivante</a>";
-            }
-            else
-            {
-                $offset = $offset +5;
-                $bouton_suivant = "<a href=index.php?page=articles&start=$offset> Page suivante </a>";
+        // if($offset + 5 < $count)
+        // {
+        //     if(isset($_GET["categorie"])) 
+        //     {
+        //         $cat = $_GET['categorie'];
+        //         $offset = $offset +5;
+        //         $bouton_suivant = "<a href=index.php?page=articles&categorie=$cat&start=$offset+5> Page suivante</a>";
+        //     }
+        //     else
+        //     {
+        //         $offset = $offset +5;
+        //         $bouton_suivant = "<a href=index.php?page=articles&start=$offset+5> Page suivante </a>";
 
-            }
+        //     }
+        // }
+        if(isset($_GET['pagination']) && !empty($_GET['pagination']))
+        {
+            $currentpage = $_GET['pagination'];
         }
-       
+        else $currentpage = 1;
+
+        $parPage = 5;
+        $pages = ceil($count / $parPage);
+
+        $premier = ($currentpage * $parPage) - $parPage;
+        $request = $billet->get_art_byoffset($premier, $parPage); // recupère les articles en respectant le décalage
+
+        // $NBA = $billet->count_that(); //compte le nombre total d'articles
+
+        echo $NBA;
 
         require 'Vue/vueArticles.php';
     }

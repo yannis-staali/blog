@@ -1,18 +1,20 @@
-<!DOCTYPE HTML>
+<!doctype html>
+<html lang="fr">
 
-<html>
-	<head>
-		<title>Inscritpion</title>
+    <head>
+        <title>Inscription</title>
+        <!-- inclusion des head -->
+        <?php include_once 'Vue/includes/head.php'?>
     </head>
     
 	<body class="body_home">
-
-        <!-- Header -->
-        
-            <!-- Main -->
+		  <!-- Inclusion du header -->
+		  <?php include_once 'Vue/includes/header.php'?>
+             
+        <!-- Main -->
         <main class="connexion_main"> 
             <section class="connexion_box_form">
-				<h1 class="title_register">CREATE ACCOUNT</h1>
+				<h1 class="title_register">CREER UN COMPTE</h1>
 				<form action="" method="POST">
 					
 					<div class="log_form">
@@ -43,9 +45,12 @@
 			</section>
         </main>    
 
-        <!-- Footer -->
+        <!--Inclusion du Footer -->
+        <?php include_once 'Vue/includes/footer.php'?>
 
-		<!-- Scripts -->
+			<!--Inclusion des Scripts -->
+			<?php //include_once 'Vue/includes/scripts.php'?>        
+        	<script src="Assets/js/app.js"></script> 
     </body>
     
 </html>

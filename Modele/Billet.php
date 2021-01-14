@@ -102,15 +102,25 @@ class Billet extends Model
     }
 
     /**
-     * Recupère les articles après filtre de categorie
+     * Compte le nombre d'articles total
      */
-    public function get_art_byoffset($offset)
+    public function count_that()
+    {
+        $sql = "SELECT* FROM articles";
+        $count = parent::executerRequete($sql); // on utilise la methode du parent
+        $count = $count->rowCount();
+        return $count;
+    }
+
+    /**
+     * Recupère les articles après filtre de categorie
+     */     
+    public function get_art_byoffset($premier, $parPage)
     {
         $sql = "SELECT articles.id, articles.article, articles.date, articles.titre
                 FROM articles 
                 ORDER BY date desc 
-                LIMIT 5
-                OFFSET $offset";
+                LIMIT $premier, $parPage";
         $request = parent::executerRequete($sql); // on utilise la methode du parent
         return $request;
     }
@@ -137,6 +147,16 @@ class Billet extends Model
         $sql = "INSERT INTO articles (article, id_utilisateur, id_categorie, date, titre)
                 VALUE (?, ?, ?, ?, ?)";
         $request = parent::executerRequete($sql, array($article, $id_utilisateur, $id_categorie, $date, $titre)); // on utilise la methode du parent
+        return  $request;
+    }
+     /**
+     * Permet d'inseret un nouvel article
+     */
+    public function insert_commentaire($commentaire, $id_article, $id_utilisateur, $date)
+    {
+        $sql = "INSERT INTO commentaires (commentaire, id_article, id_utilisateur, date)
+                VALUE (?, ?, ?, ?)";
+        $request = parent::executerRequete($sql, array($commentaire, $id_article,  $id_utilisateur, $date)); // on utilise la methode du parent
         return  $request;
     }
 

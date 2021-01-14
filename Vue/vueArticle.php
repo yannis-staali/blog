@@ -1,34 +1,63 @@
+<!doctype html>
+<html lang="fr">
 
+    <head>
+        <title>Article</title>
+        <!-- inclusion des head -->
+        <?php include_once 'Vue/includes/head.php'?>
+    </head>
 
-<?php foreach ($billets as $billet):
-    ?>
-    <article>
-        <header>
-                <h1 class="titreBillet"><?= $billet['titre'] ?></h1>
-       
-            <p>Posté par : <?= $billet['login'] ?></p>
-            <p>Le : <?= $billet['date'] ?></p>
-        </header>
-        <p>Categorie : <?= $billet['categorie'] ?></p>
-        <p><?= $billet['article'] ?></p>
-    </article>
-    <?php endforeach; ?>
-    <section class="comm">
-        <?php foreach($commentaires as $comm): ?>
-            <div class="billet">
-            <p>Posté par : <?= $comm['commentaire'] ?></p>
-            <p>Posté par : <?= $comm['date'] ?></p>
-            <p>Posté par : <?= $comm['login'] ?></p>
-            </div>
+    <body>
+        <!-- Inclusion du header -->
+        <?php include_once 'Vue/includes/header.php'?>
+
+        <!-- Affichage des articles -->
+        <article> 
+        <?php foreach ($billets as $billet): ?>
+                    <h1 class="titreBillet"><?= $billet['titre'] ?></h1>
+        
+                <p>Posté par : <?= $billet['login'] ?></p>
+                <p>Le : <?= $billet['date'] ?></p>
+            </header>
+            <p>Categorie : <?= $billet['categorie'] ?></p>
+            <p><?= $billet['article'] ?></p>
         <?php endforeach; ?>
-    </section>
-    <hr />
+        </article>
+        
+        <!-- Affichage des commentaires -->
+        <section class="comm">
+            <?php foreach($commentaires as $comm): ?>
+                <div class="billet">
+                <p>Posté par : <?= $comm['commentaire'] ?></p>
+                <p>Posté par : <?= $comm['date'] ?></p>
+                <p>Posté par : <?= $comm['login'] ?></p>
+                </div>
+            <?php endforeach; ?>
+        </section>
+        <hr />
 
-<!-- var_dump( $commentaires ); -->
+        <!-- Il faudra ajouter un formulaire d'ajout de commentaire -->
+        <h1 class="">Mettre un commentaire</h1>
+				<form action="" method="POST">
+					
+					<div class="">
+					<label>Votre commentaire</label>
+                    <textarea name="com_sub" rows="5" cols="30" placeholder="Texte article"></textarea>
+					<!-- <input type="text"  name="login"> -->
+					</div>
+                    
+					<div class="submit">
+					<input type="submit" id='submit' name="submit">
+					</div>
+				</form>
 
+        <!--Inclusion du Footer -->
+        <?php include_once 'Vue/includes/footer.php'?>
 
-<!-- Il faudra ajouter les commentaires et un formulaire d'ajout de commentaire -->
-<!-- Refaire une boucle foreach avec les commentaires -->
+        <!--Inclusion des Scripts -->
+        <?php //include_once 'Vue/includes/scripts.php'?>        
+        <script src="Assets/js/app.js"></script>  
+    </body>
 
 <style>
 

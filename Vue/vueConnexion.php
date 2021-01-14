@@ -1,12 +1,17 @@
-<!DOCTYPE HTML>
+<!doctype html>
+<html lang="fr">
 
-<html>
-	<head>
-		<title>Connexion</title>
+    <head>
+        <title>Accueil</title>
+        <!-- inclusion des head -->
+        <?php include_once 'Vue/includes/head.php'?>
     </head>
     
 	<body class="body_home">
-            <!-- Main -->
+		 <!-- Inclusion du header -->
+		 <?php include_once 'Vue/includes/header.php'?>
+
+        <!-- Main -->
         <main class="connexion_main"> 
             <section class="connexion_box_form">
 				<h1>Connexion</h1>
@@ -30,9 +35,12 @@
 			</section>
         </main>    
 
-        <!-- Footer -->
+		 <!--Inclusion du Footer -->
+		 <?php include_once 'Vue/includes/footer.php'?>
 
-		<!-- Scripts -->
+		 <!--Inclusion des Scripts -->
+		 <?php //include_once 'Vue/includes/scripts.php'?>        
+        <script src="Assets/js/app.js"></script> 
     </body>
     
 </html>
