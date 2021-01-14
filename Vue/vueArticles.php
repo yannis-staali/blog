@@ -43,10 +43,14 @@
                     echo "<a href=index.php?page=articles&pagination=$precedent> Page précédente </a>";
                 }
 
-                $j = 2;
-                for($i=2; $i<=$pages; $i++)
-                {
-                    echo "<a href=index.php?page=articles&pagination=$j> Page $j</a>";
+                $j = 1;
+                for($i=1; $i<=$pages; $i++)
+                {   
+                    if($j != $currentpage)
+                    {
+                        echo "<a href=index.php?page=articles&pagination=$j> Page $j</a>";
+                    }
+                    // echo $currentpage;
                     $j++;
                 }
 
