@@ -76,21 +76,6 @@ class Billet extends Model
     }
 
     /**
-     * Recupère les articles après filtre de categorie
-     */
-    public function get_art_bycategorie($categorie, $offset)
-    {
-        $sql = "SELECT articles.id, articles.article, articles.date, articles.titre
-                FROM articles 
-                WHERE id_categorie = $categorie
-                ORDER BY date desc 
-                LIMIT 5
-                OFFSET $offset";
-        $request = parent::executerRequete($sql); // on utilise la methode du parent
-        return $request;
-    }
-
-    /**
      * Compte le nombre d'articles total
      */
     public function count_articles()
@@ -114,13 +99,29 @@ class Billet extends Model
 
     /**
      * Recupère les articles après filtre de categorie
+     */
+    public function get_art_bycategorie($categorie, $parPage, $premier)
+    {
+        $sql = "SELECT articles.id, articles.article, articles.date, articles.titre
+                FROM articles 
+                WHERE id_categorie = $categorie
+                ORDER BY date desc 
+                LIMIT $parPage
+                OFFSET $premier"; // la première variables est le LIMIT, la deuxieme est le OFFSET
+        $request = parent::executerRequete($sql); // on utilise la methode du parent
+        return $request;
+    }
+
+    /**
+     * Recupère les articles après filtre de categorie
      */     
-    public function get_art_byoffset($premier, $parPage)
+    public function get_art_byoffset($parPage, $premier)
     {
         $sql = "SELECT articles.id, articles.article, articles.date, articles.titre
                 FROM articles 
                 ORDER BY date desc 
-                LIMIT $premier, $parPage";
+                LIMIT $parPage
+                OFFSET $premier";
         $request = parent::executerRequete($sql); // on utilise la methode du parent
         return $request;
     }

@@ -18,7 +18,8 @@
             </header>
             <div id="contenu">
                 <?php  foreach($categories as $cat): 
-                    echo "<p><a href=index.php?articles.php&page=articles&categorie=".$cat['id'].">".$cat['nom']."</a></p>";
+                    echo "<p><a href=index.php?page=articles&categorie=".$cat['id'].">".$cat['nom']."</a></p>";
+                    // echo "<p><a href=index.php?articles.php&page=articles&categorie=".$cat['id'].">".$cat['nom']."</a></p>";
                     // index.php?page=articles&categorie=1
                 endforeach; ?>
             </div> 
@@ -35,37 +36,80 @@
             </div>
 
                 <?php
-                //ici morceau de code pour faire la pagination
-                //rajouter un if a chaque fois pour filtrer la categorie
+                //\\\\\\\\\\\\\\PAGINATION\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+                //page precedente
                 if($currentpage >1)
                 {
-                    $precedent = $currentpage -1;
-                    echo "<a href=index.php?page=articles&pagination=$precedent> Page précédente </a>";
+                    if(isset($_GET['categorie']))
+                    {
+                        $categorie = $_GET['categorie'];
+                        $precedent = $currentpage -1;
+                        echo "<a href=index.php?page=articles&categorie=$categorie&pagination=$precedent> Page précédente</a>";
+
+                    }
+                    elseif(!isset($_GET['categorie']))
+                    {
+                        $precedent = $currentpage -1;
+                        echo "<a href=index.php?page=articles&pagination=$precedent> Page précédente</a>";
+                    }
                 }
 
+                //numerotation des pages
                 $j = 1;
                 for($i=1; $i<=$pages; $i++)
                 {   
                     if($j != $currentpage)
+                    {   
+                        if(isset($_GET['categorie']))
+                        {
+                            $categorie = $_GET['categorie'];
+                            echo "<a href=index.php?page=articles&categorie=$categorie&pagination=$j> $j </a>";
+                        }
+                        elseif(!isset($_GET['categorie']))
+                        {
+                            echo "<a href=index.php?page=articles&pagination=$j> $j </a>";
+
+                        }
+                    }
+                    if($j ==$currentpage)
                     {
-                        echo "<a href=index.php?page=articles&pagination=$j> Page $j</a>";
+                        echo $currentpage;
                     }
                     // echo $currentpage;
                     $j++;
-                }
+                }   
 
+                //page suivante
                 if($currentpage < $pages)
                 {
-                    $suivant = $currentpage +1;
-                    echo "<a href=index.php?page=articles&pagination=$suivant> Page suivante</a>";
+                    if(isset($_GET['categorie']))
+                    {
+                        $categorie = $_GET['categorie'];
+                        $suivant = $currentpage +1;
+                        echo "<a href=index.php?page=articles&categorie=$categorie&pagination=$suivant> Page suivante(cat) </a>";
+
+                    }
+                    elseif(!isset($_GET['categorie']))
+                    {
+                        $suivant = $currentpage +1;
+                        echo "<a href=index.php?page=articles&pagination=$suivant> Page suivante</a>";
+                    }
+                    
                 }
+                echo'<pre>';
+                echo 'page actuelle '. $currentpage;
+                echo'<pre>';
+                echo 'nombre d\'articles '. $count;
+                echo'<pre>';
+                echo 'nombre de pages '. $pages;
+
                 ?>
 
             <div>
                 <?php if(isset($bouton_precedent)): echo $bouton_precedent; endif; ?>
             </div>
             <div>
-                <?php if(isset($bouton_suivant)): echo $bouton_suivant; endif; ?>
+                <!-- <?php if(isset($bouton_suivant)): echo $bouton_suivant; endif; ?> -->
             </div>
             <footer id="piedBlog">
               Ceci est un footer
