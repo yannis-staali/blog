@@ -21,6 +21,13 @@
             </header>
             <p>Categorie : <?= $billet['categorie'] ?></p>
             <p><?= $billet['article'] ?></p>
+            <?php
+            if($billet['data'] != '')
+            {
+                echo "<img src='display.php?display=$billet[id]'>";
+            }
+            ?>
+
         <?php endforeach; ?>
         </article>
         

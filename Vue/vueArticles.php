@@ -24,14 +24,18 @@
                 endforeach; ?>
             </div> 
 
-            <div class="articles">
+            <div class="articles billets">
                 <?php  foreach($request as $result): 
 
                     echo "<div class='billets'><h3>".$result['titre']."</h3>
-                        <p>".$result['date']."</p>
+                        <p>Le : ".$result['date']."</p>
                         <p>".$result['article']."</p>
-                        <a href=index.php?page=article&id=".$result['id'].">Accedez à l'article</a></div>";
-
+                        <a href=index.php?page=article&id=".$result['id'].">Accedez à l'article</a>";
+                        if($result['data'] != '')
+                        {
+                            echo "<img src='display.php?display=$result[id]'>";
+                        }
+                        echo "</div>";
                 endforeach; ?>
             </div>
 

@@ -36,36 +36,41 @@ class ControleurCreer_article
             //on va verfifier qu'une seule partie categorie est remplie
             if(!empty($_POST['categorie2']) && empty($_POST['categorie']))
             {   
-            //on insere le nom de la catégorie 
-            $nomcat = $_POST['categorie2'];
-            $idnew = $billet->insert_categorie($nomcat);
+                //on insere le nom de la catégorie 
+                $nomcat = htmlspecialchars($_POST['categorie2']);
+                $idnew = $billet->insert_categorie($nomcat);
 
-            //on la recupère l'id de la catégorie car on va en avoir besoin pour la requete INSERT
-            $recup = $billet->get_id_categorie($nomcat);
-            $recupid = $recup['id'];
+                //on la recupère l'id de la catégorie car on va en avoir besoin pour la requete INSERT
+                $recup = $billet->get_id_categorie($nomcat);
+                $recupid = $recup['id'];
 
-            //ici toutes les variables intermédiaires
-            $article = $_POST['article'];
-            $id_utilisateur = $_SESSION['utilisateur']['id']; //il faudra remplacer par $_SESSION['user']
-            // $date = date("m-d-y H:i:s");
-            $date = date("Y-m-d H:i:s");
-            $titre = $_POST['titre'];
+                //ici toutes les variables intermédiaires
+                $article = htmlspecialchars($_POST['article']);
+                $id_utilisateur = $_SESSION['utilisateur']['id']; //il faudra remplacer par $_SESSION['user']
+                $date = date("Y-m-d H:i:s");
+                $titre = htmlspecialchars($_POST['titre']);
+                $data = file_get_contents($_FILES['myfile']['tmp_name']);
 
-            // on lance la requete d'insertion avec les variables intermédiaires
-            $insertion = $billet->insert_billet($article, $id_utilisateur, $recupid, $date, $titre);
+                // on lance la requete d'insertion avec les variables intermédiaires
+                // $insertion = $billet->insert_billet($article, $id_utilisateur, $recupid, $date, $titre);
+                $insertion = $billet->insert_billet2($article, $id_utilisateur, $recupid, $date, $titre, $data);
             }
             
+            //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
             //cette condition ne s'effectue uniquement si la catégorie du menu déroulant est choisie (et pas celle du champ texte )
             if(!empty($_POST['categorie']) && empty($_POST['categorie2']))
             {
-            // variables intermédiaire
-            $article = $_POST['article'];
-            $id_utilisateur = $_SESSION['utilisateur']['id']; //il faudra remplacer par $_SESSION['user']
-            $id_categorie = $_POST['categorie']; //voir quel $_POST utiliser (celui du menu deroulant ou celui du input)
-            // $date = date("m-d-y H:i:s");
-            $date = date("Y-m-d H:i:s");
-            $titre = $_POST['titre'];
-            $insertion = $billet->insert_billet($article, $id_utilisateur, $id_categorie, $date, $titre);
+                // variables intermédiaire
+                $article = htmlspecialchars($_POST['article']);
+                $id_utilisateur = $_SESSION['utilisateur']['id']; //il faudra remplacer par $_SESSION['user']
+                $id_categorie = htmlspecialchars($_POST['categorie']); //voir quel $_POST utiliser (celui du menu deroulant ou celui du input)
+                $date = date("Y-m-d H:i:s");
+                $titre = htmlspecialchars($_POST['titre']);
+                $data = file_get_contents($_FILES['myfile']['tmp_name']);
+
+                // $insertion = $billet->insert_billet($article, $id_utilisateur, $id_categorie, $date, $titre);
+                $insertion = $billet->insert_billet2($article, $id_utilisateur, $id_categorie, $date, $titre, $data);
+
             }
 
 

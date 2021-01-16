@@ -20,16 +20,20 @@ class ControleurProfil
         if (isset($_POST['submit']))
         {
             $user = new User();
-            $check = $user->check_login_inscription($_POST['login']);
+            $login = htmlspecialchars($_POST['login']);
+            $check = $user->check_login_inscription($login);
             if($check== false)
             {
                 echo 'login deja pris';
             }
             else 
-            {
-                //mettre des variables intermédiaires avec les htmlspecialchars
+            {   
+                //mettre des variables intermédiaires
+                $password = htmlspecialchars($_POST['password']);
+                $email = htmlspecialchars($_POST['email']);
+
                 $idsession = $_SESSION['utilisateur']['id']; 
-                $check = $user->update($_POST['login'], $_POST['password'], $_POST['email'], $idsession = $_SESSION['utilisateur']['id'], $idsession);   
+                $check = $user->update($login, $password, $email, $idsession = $_SESSION['utilisateur']['id'], $idsession);   
                 // echo $check;
             }
             

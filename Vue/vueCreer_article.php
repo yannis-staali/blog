@@ -17,7 +17,7 @@
                     <p>PAGE CREER ARTICLE</p>
 
                 <div id="contenu_create_article">
-                    <form action="" method="POST">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="create_titre">
                         <label>Titre</label>
                         <input type="text"  name="titre">
@@ -46,10 +46,13 @@
                         <label>Texte</label>
                         <textarea name="article" rows="5" cols="30" placeholder="Texte article"></textarea>
                         </div>
+
+                        <!-- ici insertion image -->
+                        <input type="file" name="myfile"/>
+
                         <input type="submit" name="submit" value="créer">
                     </form>
                 </div> 
-
             </div> 
 
             <!--Inclusion du Footer -->
@@ -72,4 +75,9 @@
     // }
 
     
+?>
+<?php 
+echo'<pre>';
+var_dump($_FILES); 
+echo'<pre>';
 ?>

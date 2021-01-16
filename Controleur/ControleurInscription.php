@@ -31,9 +31,9 @@ class ControleurInscription
             }
             else 
             {
-                $login = $_POST['login'];
+                $login = htmlspecialchars($_POST['login']);
                 $hached_pass = password_hash($_POST['password'], PASSWORD_DEFAULT); // hachage
-                $email = $_POST['email'];
+                $email = htmlspecialchars($_POST['email']);
 
                 $check = $user->insert($login, $hached_pass, $email, '1');   
                 header('location: index.php?page=connexion');

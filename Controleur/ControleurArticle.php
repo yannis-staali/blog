@@ -29,7 +29,7 @@ class ControleurArticle
        //ajout d'un commentaire
        if(isset($_POST['submit']) && !empty($_POST['com_sub']))
        {
-            $coms = $_POST['com_sub'];
+            $coms = htmlspecialchars($_POST['com_sub']);
             $id_article = $_GET['id'];
             $id_utilisateur = $_SESSION['utilisateur']['id']; //il faudra mettre la $_SESSION ici
             $date =  date("Y-m-d H:i:s");

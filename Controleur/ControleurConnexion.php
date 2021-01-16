@@ -19,8 +19,8 @@ class ControleurConnexion
     {
         if (isset($_POST['submit']))
         {
-            $login = $_POST['login'];
-            $password = $_POST['password'];
+            $login = htmlspecialchars($_POST['login']);
+            $password = htmlspecialchars($_POST['password']);
 
             $user = new User();
             $checklog = $user->check_login($login);
@@ -44,7 +44,7 @@ class ControleurConnexion
     
         }
     
-        debug($_SESSION);
+        // debug($_SESSION);
         require 'Vue/vueConnexion.php';
     }
 

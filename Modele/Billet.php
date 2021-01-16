@@ -16,12 +16,12 @@ class Billet extends Model
      * Cette methode permet d'afficher les 3 derniers billets pour la page accueil
      */
     public function getBillets() {
-        $sql = 'SELECT articles.id, articles.article, articles.date, articles.titre, categories.nom as categorie, utilisateurs.login 
+        $sql = "SELECT articles.data, articles.id, articles.article, DATE_FORMAT(articles.date, '%d/%m/%Y à %Hh') AS date, articles.titre, categories.nom as categorie, utilisateurs.login 
                 FROM articles 
                 INNER JOIN categories on categories.id = articles.id_categorie
                 INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur
                 ORDER BY date desc 
-                LIMIT 3';
+                LIMIT 3";
         $billets = parent::executerRequete($sql); // on utilise la methode du parent
         return $billets;
     }
@@ -30,7 +30,7 @@ class Billet extends Model
      * Permet d'afficher un billet de blog en particulier
      */
     public function showBillet($id) {
-        $sql = "SELECT articles.article, articles.date, articles.titre, categories.nom as categorie, utilisateurs.login
+        $sql = "SELECT articles.data, articles.id, articles.article, DATE_FORMAT(articles.date, '%d/%m/%Y à %Hh') AS date, articles.titre, categories.nom as categorie, utilisateurs.login
                 FROM articles 
                 INNER JOIN categories on categories.id = articles.id_categorie
                 INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur
@@ -45,7 +45,7 @@ class Billet extends Model
      */
     public function showCommentaire($id)
     {
-        $sql = "SELECT commentaires.commentaire, commentaires.date, utilisateurs.login
+        $sql = "SELECT commentaires.commentaire, DATE_FORMAT(commentaires.date, '%d/%m/%Y à %Hh') AS date, utilisateurs.login
                 FROM commentaires
                 INNER JOIN utilisateurs on commentaires.id_utilisateur = utilisateurs.id 
                 WHERE commentaires.id_article = $id ";
@@ -99,10 +99,11 @@ class Billet extends Model
 
     /**
      * Recupère les articles après filtre de categorie
+     * avec la modif pour recup le blob
      */
     public function get_art_bycategorie($categorie, $parPage, $premier)
     {
-        $sql = "SELECT articles.id, articles.article, articles.date, articles.titre
+        $sql = "SELECT articles.id, articles.article, DATE_FORMAT(articles.date, '%d/%m/%Y à %Hh') AS date, articles.titre, articles.data
                 FROM articles 
                 WHERE id_categorie = $categorie
                 ORDER BY date desc 
@@ -114,10 +115,11 @@ class Billet extends Model
 
     /**
      * Recupère les articles après filtre de categorie
+     * avec la modif pour recup le blob
      */     
     public function get_art_byoffset($parPage, $premier)
     {
-        $sql = "SELECT articles.id, articles.article, articles.date, articles.titre
+        $sql = "SELECT articles.id, articles.article, DATE_FORMAT(articles.date, '%d/%m/%Y à %Hh') AS date, articles.titre, articles.data
                 FROM articles 
                 ORDER BY date desc 
                 LIMIT $parPage
@@ -140,7 +142,7 @@ class Billet extends Model
         return $request;
     }
 
-    /**
+    /**\\\\\\\\methode de recup si ça foire
      * Permet d'inseret un nouvel article
      */
     public function insert_billet($article, $id_utilisateur, $id_categorie, $date, $titre)
@@ -150,6 +152,18 @@ class Billet extends Model
         $request = parent::executerRequete($sql, array($article, $id_utilisateur, $id_categorie, $date, $titre)); // on utilise la methode du parent
         return  $request;
     }
+
+    /**
+     * ON VA TESTER AVEC LE BLOB
+     */
+    public function insert_billet2($article, $id_utilisateur, $id_categorie, $date, $titre, $data)
+    {
+        $sql = "INSERT INTO articles (article, id_utilisateur, id_categorie, date, titre, data)
+                VALUE (?, ?, ?, ?, ?, ?)";
+        $request = parent::executerRequete($sql, array($article, $id_utilisateur, $id_categorie, $date, $titre, $data)); // on utilise la methode du parent
+        return  $request;
+    }
+
      /**
      * Permet d'inseret un nouvel article
      */
