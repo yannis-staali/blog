@@ -1,17 +1,23 @@
 <?php
+session_start();
 
 require_once 'Modele/User.php';
 
 class ControleurInscription 
 {
+    // function __construct()
+    // {
+    //     if(isset($_SESSION['utilisateur']));
+    //     {
+    //         header('location: index.php?page=accueil');
+    //     }
+    //     if(!isset($_SESSION['utilisateur']))
+    //     {
+    //         header('location: index.php?page=inscription');
 
-  /**
-   * Controle la page Inscription
-   * Voir eventuellement ajouter un check email
-   * Ajouter check password
-   * Ajouter INSERT DANS BDD
-   * Ajouter password hach etc...
-   */
+    //     }
+    // }
+ 
 
     public function route_inscription() 
     {
@@ -25,8 +31,12 @@ class ControleurInscription
             }
             else 
             {
-                $check = $user->insert($_POST['login'], $_POST['password'], $_POST['email'], '1');   
-                echo $check;
+                $login = $_POST['login'];
+                $hached_pass = password_hash($_POST['password'], PASSWORD_DEFAULT); // hachage
+                $email = $_POST['email'];
+
+                $check = $user->insert($login, $hached_pass, $email, '1');   
+                header('location: index.php?page=connexion');
             }
             
     

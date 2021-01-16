@@ -28,15 +28,18 @@
         <section class="comm">
             <?php foreach($commentaires as $comm): ?>
                 <div class="billet">
-                <p>Posté par : <?= $comm['commentaire'] ?></p>
-                <p>Posté par : <?= $comm['date'] ?></p>
                 <p>Posté par : <?= $comm['login'] ?></p>
+                <p>Le : <?= $comm['date'] ?></p>
+                <p><?= $comm['commentaire'] ?></p>
+
                 </div>
             <?php endforeach; ?>
         </section>
         <hr />
 
-        <!-- Il faudra ajouter un formulaire d'ajout de commentaire -->
+         <!-- L'ajout de commentaire n'est possible que si l'utilisateur est connecté -->
+         <?php if($_SESSION['utilisateur']): ?>       
+        <!-- formulaire d'ajout de commentaire -->
         <h1 class="">Mettre un commentaire</h1>
 				<form action="" method="POST">
 					
@@ -50,6 +53,7 @@
 					<input type="submit" id='submit' name="submit">
 					</div>
 				</form>
+          <?php endif; ?>      
 
         <!--Inclusion du Footer -->
         <?php include_once 'Vue/includes/footer.php'?>

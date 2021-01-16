@@ -1,5 +1,5 @@
 <?php
-require_once 'Controleur/ControleurBillet.php';
+session_start();
 
 require_once 'Controleur/ControleurAccueil.php';
 require_once 'Controleur/ControleurInscription.php';
@@ -13,28 +13,6 @@ require_once 'Controleur/ControleurAdmin.php';
 
 class Routeur 
 {
-    // private $ctrlBillet;
-    private $ctrlAccueil;
-    private $ctrlInscription;
-    private $ctrlConnexion;
-    private $ctrlProfil;
-    private $ctrlArticles;
-    private $ctrlArticle;
-    private $ctrlCreer_article;
-    private $ctrlAdmin;
-
-    public function __construct() 
-    {   
-        // $this->ctrlBillet = new ControleurBillet();
-        $this->ctrlAccueil = new ControleurAccueil();
-        $this->ctrlInscription = new ControleurInscription();
-        $this->ctrlConnexion = new ControleurConnexion();
-        $this->ctrlProfil = new ControleurProfil();
-        $this->ctrlArticles = new ControleurArticles();
-        $this->ctrlArticle = new ControleurArticle();
-        $this->ctrlCreer_article = new ControleurCreer_article();
-        $this->ctrlAdmin = new ControleurAdmin();
-    }
 
     // Route une requête entrante : exécution l'action associée
     // c'est ici qu'on va choisir le bon controleur en fonction du choix de page
@@ -42,51 +20,56 @@ class Routeur
     {
             if (isset($_GET['page'])) 
             {
-                //charge la page billet
-                if ($_GET['page'] == 'billet')
-                {
-                    // $idBillet = intval($this->getParametre($_GET, 'id'));
-                    // $this->ctrlBillet->billet($idBillet);
-                }
                 if ($_GET['page'] == 'inscription')
                 {
-                    $this->ctrlInscription->route_inscription();
+                    $inscription = new ControleurInscription();
+                    $inscription->route_inscription();
                 }
                 if ($_GET['page'] == 'connexion')
                 {
-                    $this->ctrlConnexion->route_connexion();
+                    $connexion = new ControleurConnexion();
+                    $connexion->route_connexion();
                 }
                 if ($_GET['page'] == 'profil')
                 {
-                    $this->ctrlProfil->route_profil();
+                    $profil = new ControleurProfil();
+                    $profil->route_profil();
                 }
                 if ($_GET['page'] == 'articles') //tous les articles
                 {
-                    $this->ctrlArticles->route_articles();
+                    $articles = new ControleurArticles();
+                    $articles->route_articles();
                 }
                 if ($_GET['page'] == 'article') // un seul en particulier // a rajouter id
                 {
-                    $this->ctrlArticle->route_article();
+                    $article = new ControleurArticle();
+                    $article->route_article();
                 }
                 if ($_GET['page'] == 'creer_article') 
                 {
-                    $this->ctrlCreer_article->route_creer_article();
+                    $creerArticle = new ControleurCreer_article();
+                    $creerArticle->route_creer_article();
                 }
                 if ($_GET['page'] == 'admin')
                 {
-                    $this->ctrlAdmin->route_admin();
+                    $admin = new ControleurAdmin();
+                    $admin->route_admin();
                 }
-                // else if ($_GET['action'] == 'commenter') 
-                // {
-                //     $auteur = $this->getParametre($_POST, 'auteur');
-                //     $contenu = $this->getParametre($_POST, 'contenu');
-                //     $idBillet = $this->getParametre($_POST, 'id');
-                //     $this->ctrlBillet->commenter($auteur, $contenu, $idBillet);
-                // }
+                if ($_GET['page'] == 'accueil')
+                {
+                    $accueil = new ControleurAccueil();
+                    $accueil->route_accueil();
+                }
+                if ($_GET['page'] == 'deconnexion')
+                {
+                    require_once 'Controleur/ControleurDeconnexion.php';
+                }
             }
             else 
             {  
-                $this->ctrlAccueil->route_accueil(); // aucune action définie : affichage de l'accueil
+                $accueil = new ControleurAccueil();
+                $accueil->route_accueil();
+                // $this->ctrlAccueil->route_accueil(); // aucune action définie : affichage de l'accueil
             }
     }
     

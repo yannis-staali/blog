@@ -1,8 +1,22 @@
 <?php
+session_start();
+
 require_once 'Modele/Billet.php';
 
 class ControleurAdmin 
 {
+    //retour à l'envoyeur
+    function __construct()
+    {
+        if(!isset($_SESSION['utilisateur']))
+        {
+            header('location: index.php?page=accueil');
+        }
+        if($_SESSION['utilisateur']['droits'] !== '1337')
+        {
+            header('location: index.php?page=accueil');
+        }
+    }
 
     public function route_admin() 
     {

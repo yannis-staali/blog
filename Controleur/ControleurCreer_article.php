@@ -1,11 +1,31 @@
 <?php
+session_start();
 
 require_once 'Modele/Billet.php';
 
 //voir pour rajouter photo
-class ControleurCreer_article {
+class ControleurCreer_article 
+{
+    function __construct()
+    {
+        //verifie que la personne connectée est un admin ou un moderateur
+        if(!isset($_SESSION['utilisateur']))
+        {
+            header('location: index.php?page=accueil');
+        }
+        if(isset($_SESSION['utilisateur']))
+        {
+            $tableau = ['1337', '42'];
+            $droitsSession = $_SESSION['utilisateur']['droits'];
+            if(in_array($droitsSession, $tableau) == false)
+            {
+                header('location: index.php?page=accueil');
+            }
+        }
+    }
 
-    public function route_creer_article() {
+    public function route_creer_article() 
+    {
         
         $billet = new Billet();
         $categories = $billet->get_categories();
@@ -26,7 +46,7 @@ class ControleurCreer_article {
 
             //ici toutes les variables intermédiaires
             $article = $_POST['article'];
-            $id_utilisateur = 1; //il faudra remplacer par $_SESSION['user']
+            $id_utilisateur = $_SESSION['utilisateur']['id']; //il faudra remplacer par $_SESSION['user']
             // $date = date("m-d-y H:i:s");
             $date = date("Y-m-d H:i:s");
             $titre = $_POST['titre'];
@@ -40,7 +60,7 @@ class ControleurCreer_article {
             {
             // variables intermédiaire
             $article = $_POST['article'];
-            $id_utilisateur = 1; //il faudra remplacer par $_SESSION['user']
+            $id_utilisateur = $_SESSION['utilisateur']['id']; //il faudra remplacer par $_SESSION['user']
             $id_categorie = $_POST['categorie']; //voir quel $_POST utiliser (celui du menu deroulant ou celui du input)
             // $date = date("m-d-y H:i:s");
             $date = date("Y-m-d H:i:s");

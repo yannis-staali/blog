@@ -6,9 +6,6 @@ class User extends Model
 {
   
   private $pdo;
-  
-//   private $login;
-//   private $password;
 
       /**
        * ADAPTATION DE LA CLASSE EN EXTEND DE MODEL
@@ -67,14 +64,18 @@ class User extends Model
             }
         } 
 
-        public function check_password($login, $password)//ici on verifie le password et retourne false si il existe en bdd
+        /**
+         * ADAPTEE NOUVEAU MVC
+         */
+        public function check_pass_hash($login, $password)//ici on verifie le password et retourne false si il existe en bdd
         {   
-            $query = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE login = ? ");
-            $query->bindValue(1, $login);
-            $query->execute();
+            $sql = "SELECT * FROM utilisateurs WHERE login = ? ";
+            $requete = parent::executerRequete($sql, array($login)); // on utilise la methode du parent
+            // $query->bindValue(1, $login);
+            // $query->execute();
   
-            $ligne = $query->fetch(PDO::FETCH_ASSOC);
-            $verify_pass = password_verify($password, $ligne['password']);
+            $row = $requete->fetch(PDO::FETCH_ASSOC);
+            $verify_pass = password_verify($password, $row['password']);
 
               if($verify_pass==true)
               {
@@ -85,21 +86,38 @@ class User extends Model
               return $error;
         }
 
+        /**
+         * ADAPTEE NOUVEAU MVC
+         */
+        public function check_droits($login)//ici on verifie le password et retourne false si il existe en bdd
+        {   
+            $sql = "SELECT * FROM utilisateurs WHERE login = ? ";
+            $requete = parent::executerRequete($sql, array($login)); // on utilise la methode du parent
+  
+            $row = $requete->fetch(PDO::FETCH_ASSOC);
+            $droits = $row['id_droits'];
+
+              // if($verify_pass==true)
+              // {
+              //     return false;
+              // }
+              // else
+              // $error= ' mot de passe incorrect';
+              return $droits;
+        }
+
+        /**
+         * 
+         */
         //changement de la methode create_session par la methode get_id
         public function get_id($login) //sert à creer une session identifiée grace à l'id
         {
-            $query = $this->pdo->prepare("SELECT*FROM utilisateurs WHERE login = ? ");
-            $query->bindValue(1, $login);
-            $query->execute();
+          $sql = "SELECT * FROM utilisateurs WHERE login = ? ";
+          $requete = parent::executerRequete($sql, array($login)); // on utilise la methode du parent
 
-            $ligne = $query->fetch(PDO::FETCH_ASSOC);
-            //initialement on crée la session et on redirige ici mais faut changer
-            // $_SESSION['connexion'] = $ligne['id'];
-            // header('location: profil.php');
-            // exit();
-            //donc on met ça a la place :
-            $id = $ligne['id'];
-            return $id;
+          $row = $requete->fetch(PDO::FETCH_ASSOC);
+          $id = $row['id'];
+          return $id;
         }
 
         //Fin partie connexion
