@@ -20,7 +20,7 @@ class Billet extends Model
                 FROM articles 
                 INNER JOIN categories on categories.id = articles.id_categorie
                 INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur
-                ORDER BY date desc 
+                ORDER BY articles.id DESC
                 LIMIT 3";
         $billets = parent::executerRequete($sql); // on utilise la methode du parent
         return $billets;
@@ -35,7 +35,7 @@ class Billet extends Model
                 INNER JOIN categories on categories.id = articles.id_categorie
                 INNER JOIN utilisateurs on utilisateurs.id = articles.id_utilisateur
                 WHERE articles.id = '$id'
-                ORDER BY date desc ";
+                -- ORDER BY date desc ";
         $billets = parent::executerRequete($sql); // on utilise la methode du parent
         return $billets;
     }
@@ -106,7 +106,7 @@ class Billet extends Model
         $sql = "SELECT articles.id, articles.article, DATE_FORMAT(articles.date, '%d/%m/%Y à %Hh') AS date, articles.titre, articles.data
                 FROM articles 
                 WHERE id_categorie = $categorie
-                ORDER BY date desc 
+                ORDER BY articles.id desc 
                 LIMIT $parPage
                 OFFSET $premier"; // la première variables est le LIMIT, la deuxieme est le OFFSET
         $request = parent::executerRequete($sql); // on utilise la methode du parent
@@ -121,7 +121,7 @@ class Billet extends Model
     {
         $sql = "SELECT articles.id, articles.article, DATE_FORMAT(articles.date, '%d/%m/%Y à %Hh') AS date, articles.titre, articles.data
                 FROM articles 
-                ORDER BY date desc 
+                ORDER BY articles.id desc 
                 LIMIT $parPage
                 OFFSET $premier";
         $request = parent::executerRequete($sql); // on utilise la methode du parent

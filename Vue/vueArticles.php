@@ -136,4 +136,8 @@
     border: solid 1px black;
     margin-bottom: 5px;
 }
+.articles img{
+    display:block;
+    max-width:100%;
+}
 </style>

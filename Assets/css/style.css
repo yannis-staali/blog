@@ -1,51 +1,159 @@
-/* Pour pouvoir utiliser une hauteur (height) ou une hauteur minimale
-   (min-height) sur un bloc, il faut que son parent direct ait lui-même une
-   hauteur déterminée (donc toute valeur de height sauf "auto": hauteur en
-   pixels, em, autres unités...).
-   Si la hauteur du parent est en pourcentage, elle se réfère alors à la
-   hauteur du «grand-père», et ainsi de suite.
-   Pour pouvoir utiliser un "min-height: 100%" sur div#global, il nous faut:
-   - un parent (body) en "height: 100%";
-   - le parent de body également en "height: 100%". */
-html, body {
-    height: 100%;
+/* ============================
+    VARIABLES DE COULEUR 
+============================*/
+:root{
+    --color1: #F8F8F8;
+    --color2: #707070;
+    --color3: #1792D2;
+    --color4: #143774;
+
+    --font1: 'Lora', serif;
+    --font2: 'Ubuntu', sans-serif;
+}
+/* ===============================
+    TYPOGRAPHIE 
+===============================*/
+h1,
+h2,
+h3{
+    font-family: var(--font1);
+    font-weight: 400;
+    color: var(--color4);
+}
+h1{
+    font-weight: 100;
+    font-size: 2rem;
+    margin: 0;
+    
+}
+.article_title{
+    font-size: 1.5rem;
+}
+.article_title:hover,
+.article_title:focus{
+    color: var(--color3);
+}
+.article_content{
+    font-size: 0.800rem;
+}
+.subtitle{
+    font-weight: 700;
+    color: var(--color3);
+    font-size: .75rem;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+/* ============================
+   LAYOUT
+===============================*/
+/* PAGE ACCUEIL-----//////////\\\\\\\\\\\\\\\\\\\\\\ */
+body{
+    font-size: 1.125rem;
+    color: var(--color4);
+    margin: 0;
+    font-family: var(--font2);
+    font-size: 1.125rem;
+    font-weight: 300;
+}
+img{
+        max-width: 100%;
+        display:block;
+}
+.container{
+    width: 95%;
+    max-width: 1000px;
+    border:1px solid rgb(48, 42, 48);
+    margin: 0 auto;
+}
+.container_flex{
+    display: flex;
+    justify-content: space-between;
+}
+/* HEADER ET NAV -------------/////\\\\\\\\\\\\\\\\\\\\\\\\ */
+header{
+    /* text-align: center; */
+    background-color: var(--color1);
+    padding: 2em 0;
+}
+.container_nav{
+    display: flex;
+    justify-content: space-between;
+}
+nav ul{
+    /* border: 1px solid magenta; */
+    list-style: none;
+    padding: 0;
+    display:flex;
+    
+}
+nav li{
+    /* border: 1px solid rgb(19, 17, 19); */
+    margin-left: 2em;
+}
+nav a{
+    /* border: 1px solid rgb(255, 166, 0); */
+    color: var(--color2);
+    font-weight: 700;
+    padding: .25em 0;
+}
+nav a:hover, nav a:focus{
+    color: var(--color3);
+    border-bottom: 1px solid var(--color2);
+}
+@media (max-width:675px){
+    .container_nav{
+       flex-direction: column;
+    }
+    header{
+        text-align: center;
+    }
+    nav ul{
+        justify-content: space-around;
+    }
+    nav li{
+        margin-left: 0;
+    }
 }
 
-body {
-    color: #bfbfbf;
-    background: black;
-    font-family: 'Futura-Medium', 'Futura', 'Trebuchet MS', sans-serif;
+/* Cette media querrie est pour les vieux telephones : */
+@media (max-width:450px){
+    nav ul{
+        flex-direction: column;
+    }
+}
+/* //////// 
+\\\\\\ PARTIE INTRO */
+.intro_image{
+    
 }
 
-h1 {
-    color: white;
+/* \\\\\////\\/\//\//\/
+PARTIE MAIN --------- */
+.home_main{
+    max-width: 700px;
+    border: 1px solid rgb(52, 65, 179);
+}
+.home_aside{
+    max-width: 200px;
+    border: 1px solid rgb(243, 233, 42);
+}
+.home_article_each{
+    border: 1px solid rgb(0, 255, 13);
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.home_article_each_text{
+    width:50%;
+}
+.home_article_each_image{
+    width:50%;
+}
+.home_article_each_image img{
+    display:block;
+    width:100%;
 }
 
-.titreBillet {
-    margin-bottom : 0px;
-}
-
-#global {
-    min-height: 100%;  /* Voir commentaire sur html et body plus haut */
-    background: #333534;
-    width: 70%;
-    margin: auto;	/* Permet de centrer la div */
-    text-align: justify;
-    padding: 5px 20px;
-}
-
-#contenu {
-    margin-bottom : 30px;
-}
-
-#titreBlog, #piedBlog {
-    text-align: center;
-}
-
-#titreReponses {
-    font-size : 100%;
-}
-
-#txtCommentaire {
-    width: 50%;
-}
