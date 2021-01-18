@@ -26,8 +26,9 @@ h1{
     margin: 0;
     
 }
-.article_title{
-    font-size: 1.5rem;
+h2{
+    font-size: 1rem;
+
 }
 .article_title:hover,
 .article_title:focus{
@@ -102,42 +103,25 @@ nav a:hover, nav a:focus{
     color: var(--color3);
     border-bottom: 1px solid var(--color2);
 }
-@media (max-width:675px){
-    .container_nav{
-       flex-direction: column;
-    }
-    header{
-        text-align: center;
-    }
-    nav ul{
-        justify-content: space-around;
-    }
-    nav li{
-        margin-left: 0;
-    }
-}
-
-/* Cette media querrie est pour les vieux telephones : */
-@media (max-width:450px){
-    nav ul{
-        flex-direction: column;
-    }
-}
 /* //////// 
 \\\\\\ PARTIE INTRO */
 .intro_image{
-    
+    width: 100%;
+    max-width: 600px;
+    opacity: 50%;
 }
-
+.intro_featured{
+    width: 80%;
+    border: 1px solid red;
+}
+.intro_title{
+    color:var(--color4)
+}
 /* \\\\\////\\/\//\//\/
 PARTIE MAIN --------- */
 .home_main{
     max-width: 700px;
     border: 1px solid rgb(52, 65, 179);
-}
-.home_aside{
-    max-width: 200px;
-    border: 1px solid rgb(243, 233, 42);
 }
 .home_article_each{
     border: 1px solid rgb(0, 255, 13);
@@ -148,12 +132,65 @@ PARTIE MAIN --------- */
 }
 .home_article_each_text{
     width:50%;
+    background-color: magenta;
 }
 .home_article_each_image{
     width:50%;
+    background-color: limegreen;
 }
 .home_article_each_image img{
     display:block;
     width:100%;
 }
+.home_aside{
+    max-width: 200px;
+    border: 1px solid rgb(243, 233, 42);
+}
 
+/* \\\\\////\\/\//\//\/
+PARTIE ASIDE --------- */
+
+/* \\\\\////\\/\//\//\/
+PARTIE FOOTER --------- */
+.home_footer{
+    background-color: var(--color3);
+}
+.home_footer > p{
+    margin: 0;
+    padding: 2em;
+    text-align: center;
+}
+
+@media (max-width:675px){
+    .container_nav{
+       flex-direction: column;
+    }
+    header{
+        text-align: center;
+    }
+    nav ul{
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    nav li{
+        margin-left: 0;
+    }
+    .intro_featured{
+        margin: 0 auto;
+    }
+    .container_main{
+        flex-direction: column;
+    }
+    .home_article_each{
+        flex-direction: column;
+    }
+    .home_aside{
+        margin: 0 auto;
+    }
+}
+/* Cette media querrie est pour les vieux telephones : */
+@media (max-width:450px){
+    nav ul{
+        flex-direction: column;
+    }
+}

@@ -33,15 +33,16 @@
 
             <section class="container container_flex">  <!-- partie intro du haut -->
                 <article class="intro_featured">
-                    <h2 class="intro_title"></h2>
+                    <h2 class="intro_title">Looking for perfection</h2>
                     <img src="Assets/images/mix4.jpg" alt="" class="intro_image">
-                    <p class="intro_info"></p>
-                    <p class="intro_body"></p>
-                    <a href="#" class="intro_more"></a>
+                    <p class="intro_info">We are always improving our skills to provide the best experience</p>
+                    <p class="intro_body">At the Food-lab we have the best R&D departement of the country where    
+                    we can explore the limits of food and catering</p>
+                    <a href="#" class="intro_more">Tell me more</a>
                 </article>
             </section>
 
-            <section class="container container_flex">  <!-- CONTAINER PRINCUPAL ------>  
+            <section class="container container_flex container_main">  <!-- CONTAINER DE ARTICLES + ASIDE ------>  
 
                 <main class="home_main">   <!--MAIN avec les 3 articles a gauche -->
                     <?php foreach ($billets as $billet): ?>
@@ -67,29 +68,32 @@
             
                 <aside class="home_aside">  <!-- PARTIE ASIDE,a propos etc... -->
                     <div class="aside_widget">
-                        <h2 class="widget_title"></h2>
-                        <img src="" alt="" class="widget_image">
+                        <h2 class="widget_title">A propos</h2>
+                        <img src="Assets/images/perso.jpg" alt="" class="widget_image">
                         <p class="widget_body"></p>
                     </div>
                     <div class="aside_widget">
-                        <h2 class="widget_title"></h2>
+                        <h2 class="widget_title">Work in a team</h2>
                         <div class="widget_collab">
-                            <h3 class="widget_collab_title"></h3>
-                            <img src="" alt="" class="widget_image">
+                            <h2 class="widget_collab_title"></h2>
+                            <img src="Assets/images/team.jpg" alt="" class="widget_image">
                         </div>
                     <div class="widget_collab">
-                        <h3 class="widget_collab_title"></h3>
-                        <img src="" alt="" class="widget_image">
+                        <h2 class="widget_collab_title">Want to make pizzas ?</h2>
+                        <img src="Assets/images/pizzafume.gif" alt="" class="widget_image">
                     </div>    
                     <div class="widget_collab">
-                        <h3 class="widget_collab_title"></h3>
-                        <img src="" alt="" class="widget_image">
+                        <h2 class="widget_collab_title">Need a chef to learn ?</h2>
+                        <img src="Assets/images/chef.jpg" alt="" class="widget_image">
                     </div>        
                     </div>
                 </aside> <!--  FIN PARTIE ASIDE ,a propos etc...\\\\ -->  
 
             </section> <!--\\//\\\/// FIN CONTENEUR PRINCIPAL\\///\\\/---------->
-
+                            
+            <footer class="home_footer">
+                <p>Ceci est un Footer</p>
+            </footer>
             <!--Inclusion du Footer -->
             <?php include_once 'Vue/includes/footer.php'?>
 
