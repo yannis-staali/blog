@@ -2,23 +2,30 @@
     VARIABLES DE COULEUR 
 ============================*/
 :root{
-    --color1: #F8F8F8;
-    --color2: #707070;
-    --color3: #1792D2;
+    --color1: #071c72;
+    --color2: #1792D2;
     --color4: #143774;
+
+    /* --color5: #071c72; */
 
     --font1: 'Lora', serif;
     --font2: 'Ubuntu', sans-serif;
+
+    --font3: 'Permanent Marker', cursive; 
 }
 /* ===============================
     TYPOGRAPHIE 
 ===============================*/
+
 h1,
 h2,
 h3{
-    font-family: var(--font1);
+    /* font-family: 'Handlee', cursive; */
+    /* font-family: 'Yanone Kaffeesatz', sans-serif; */
+    font-family: 'Kalam', cursive;
+    
+    color: var(--color1);
     font-weight: 400;
-    color: var(--color4);
 }
 h1{
     font-weight: 100;
@@ -26,9 +33,16 @@ h1{
     margin: 0;
     
 }
+.logo{
+   font-family: var(--font3);
+   color: var(--color1);
+   font-size: 5rem;
+   text-align: center;
+   text-shadow: -0.07em 0.07em 0.4em rgb(255, 255, 255), 0.04em 0.04em rgb(255, 255, 255);
+   
+}
 h2{
     font-size: 2rem;
-
 }
 h3{
     font-size: 1.5rem;
@@ -40,22 +54,36 @@ h3{
 .article_content{
     font-size: 0.800rem;
 }
-.subtitle{
-    font-weight: 700;
-    color: var(--color3);
-    font-size: .75rem;
-    margin: 0;
-}
 p{
     font-size: 1rem;
 }
 a{
     text-decoration: none;
 }
+.subtitle{
+    font-weight: 700;
+    color: var(--color2);
+    font-size: .75rem;
+    margin: 0;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+}
+nav a{
+    /* font-family: 'Biryani', sans-serif; */
+    /* font-family: 'Courgette', cursive; */
+    /* font-family: 'Dancing Script', cursive; */
+    font-family: 'Kaushan Script', cursive;
+
+    font-size: 1.5rem;
+}
 /* ============================
    LAYOUT
 ===============================*/
 /* PAGE ACCUEIL-----//////////\\\\\\\\\\\\\\\\\\\\\\ */
+header{
+    min-height: 30vh;
+}
 body{
     font-size: 1.125rem;
     color: var(--color4);
@@ -63,6 +91,11 @@ body{
     font-family: var(--font2);
     font-size: 1.125rem;
     font-weight: 300;
+    background-image: url('../images/wallpaper2.PNG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-attachment: fixed; */
+
 }
 img{
         max-width: 100%;
@@ -80,17 +113,21 @@ img{
     justify-content: space-between;
 }
 /* HEADER ET NAV -------------/////\\\\\\\\\\\\\\\\\\\\\\\\ */
-header{
-    /* text-align: center; */
-    background-color: var(--color1);
-    padding: 2em 0;
+.site_title{
+    /* margin:0 auto; */
+    background-image: url('../images/japan2.PNG');
+    /* background-color: black; */
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .container_nav{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    flex-direction: column;
     width: 95%;
     /* max-width: 1000px; */
-    border:1px solid rgb(48, 42, 48);
+    /* border:1px solid rgb(48, 42, 48); */
     margin: 0 auto;
 }
 nav ul{
@@ -98,15 +135,17 @@ nav ul{
     list-style: none;
     padding: 0;
     display:flex;
+    /* background-color: aqua; */
+    justify-content: center;
     
 }
 nav li{
     /* border: 1px solid rgb(19, 17, 19); */
-    margin-left: 2em;
+    margin: 0 2em;
 }
 nav a{
     /* border: 1px solid rgb(255, 166, 0); */
-    color: var(--color2);
+    color: var(--color5);
     font-weight: 700;
     padding: .25em 0;
 }
@@ -116,17 +155,23 @@ nav a:hover, nav a:focus{
 }
 /* //////// 
 \\\\\\ PARTIE INTRO */
-.intro_image{
-    width: 100%;
-    max-width: 600px;
-    opacity: 50%;
-}
 .intro_featured{
     width: 80%;
+    height: 70vh;
     border: 1px solid red;
+    /* background-color: rgb(129, 54, 54); */
+    display: flex;
+    margin: 0 auto;
+    /* box-shadow: 10px 10px 10px 10px rgb(0, 0, 0);; */
 }
-.intro_title{
-    color:var(--color4)
+.intro_image{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    clip-path: circle(40%);
+   
 }
 /* \\\\\////\\/\//\//\/
 PARTIE MAIN --------- */
@@ -154,6 +199,7 @@ PARTIE MAIN --------- */
     flex-direction:row;
     /* flex-wrap: wrap; */
     justify-content:space-between;
+    background-color: white;
 }
 .home_article_each_text{
     width:50%;
@@ -189,7 +235,7 @@ PARTIE ASIDE --------- */
     border: solid grey 0.5em;
     margin-bottom:1em;
     padding: 0.5em;
-   
+   background-color: white;
 }
 .widget_collab{
     border-bottom: 1px solid gray;

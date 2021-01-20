@@ -14,16 +14,16 @@
             <header>
                 <div class="container_nav">
                     <div class="site_title">
-                        <h1>Umami</h1>
+                        <h1 class="logo">Umami</h1>
                         <p class="subtitle">A blog exploring new flavor</p>
                     </div>
                     <nav>
                         <ul>
                             <li><a href="index.php">Accueil</a></li>
-                            <li><a href="index.php?page=inscription">inscription</a></li>
-                            <li><a href="index.php?page=connexion">connexion</a></li>
+                            <li><a href="index.php?page=inscription">Inscription</a></li>
+                            <li><a href="index.php?page=connexion">Connexion</a></li>
                             <!-- <li><a href="index.php?page=profil">profil</a></li> -->
-                            <li><a href="index.php?page=articles">articles</a></li>
+                            <li><a href="index.php?page=articles">Articles</a></li>
                             <!-- <li><a href="index.php?page=creer_article">creer_article</a></li> -->
                             <!-- <li><a href="index.php?page=admin">Admin</a></li> -->
                         </ul>
@@ -33,12 +33,7 @@
 
             <section class="container container_flex">  <!-- partie intro du haut -->
                 <article class="intro_featured">
-                    <h2 class="intro_title">Looking for perfection</h2>
-                    <img src="Assets/images/mix4.jpg" alt="" class="intro_image">
-                    <p class="intro_info">We are always improving our skills to provide the best experience</p>
-                    <p class="intro_body">At the Food-lab we have the best R&D departement of the country where    
-                    we can explore the limits of food and catering</p>
-                    <a href="#" class="intro_more">Tell me more</a>
+                    <img src="Assets/images/blueberry4.jpg" alt="" class="intro_image">
                 </article>
             </section>
 
