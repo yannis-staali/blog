@@ -79,6 +79,7 @@ a{
     text-align: center;
     font-family: 'Caveat', cursive;
     font-size: 1.2rem;
+    /* text-shadow: -0.07em 0.07em 0.9em rgb(255, 255, 255), 0.04em 0.9em rgb(255, 255, 255); */
 }
 nav a{
     /* font-family: 'Biryani', sans-serif; */
@@ -129,7 +130,7 @@ img{
     width: 95%;
     max-width: 1000px;
     /* border:1px solid rgb(48, 42, 48); */
-   margin: 0 auto;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
    /* background-color: lawngreen;  */
@@ -222,12 +223,14 @@ nav a:hover, nav a:focus{
     background-color: white;
     text-align: center;
     font-family: 'Kaushan Script', cursive;
-    margin-top: 2em;
-    margin-bottom: 4em;
+    
     padding: 0.1em 1em;
     box-shadow: 0.1em 0.1em 0.1em var(--color1), -0.1em -0.1em 0.1em var(--color1);
-    border-radius: 10px 100px / 120px;
-    
+    border-radius: 10px 100px / 120px; 
+}
+.subintro_featured{
+    margin-top: 10em;
+    margin-bottom: 8em;
 }
 /* \\\\\////\\/\//\//\/
 PARTIE MAIN --------- */
@@ -239,20 +242,20 @@ PARTIE MAIN --------- */
     justify-content: space-evenly; 
     width: 95%;
     /* max-width: 1000px; */
-    border:1px solid rgb(48, 42, 48);
+    /* border:1px solid rgb(48, 42, 48); */
     margin: 0 auto;
     /* margin-top: 30vh; */
     position: relative;
 }
 .home_main{
     /* max-width: 700px; */
-    border: 1px solid rgb(52, 65, 179);
+    /* border: 1px solid rgb(52, 65, 179); */
     width: 70%;
   
 }
 .home_article_each{
-    border: 1px solid rgb(0, 255, 13);
-    margin-bottom: 2px;
+    /* border: 1px solid rgb(0, 255, 13); */
+    /* margin-bottom: 2px; */
     display: flex;
     flex-direction:row;  
     /* flex-direction: column; */
@@ -279,7 +282,7 @@ PARTIE MAIN --------- */
 .home_article_each_image{
     /* width:50%; */
     /* background-color: limegreen; */
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     /* max-width: 50%; */
     /* background-color: white; */
     position: absolute;
@@ -294,7 +297,7 @@ PARTIE MAIN --------- */
 .home_aside{
     width: 35%;
     max-width: 250px;
-    border: 1px solid rgb(243, 233, 42);
+    /* border: 1px solid rgb(243, 233, 42); */
 }
 .home_article_each_image > img{
     width: 100%;
@@ -321,7 +324,9 @@ PARTIE MAIN --------- */
 /* \\\\\////\\/\//\//\/
 PARTIE ASIDE --------- */
 .aside_widget{
-    border: solid var(--color1) 0.4em;
+    /* border: solid var(--color1) 0.4em; */
+    border-top: solid var(--color1) 0.01em;
+    border-left: solid var(--color1) 0.01em;
     margin-bottom:1em;
     padding: 0.5em;
     background-color: white;
@@ -344,6 +349,7 @@ PARTIE FOOTER --------- */
     margin: 0;
     display: flex;
     flex-direction: column;
+    /* border: 1px solid red; */
 }
 .foot_container_main{
     background-color: rgba(0, 0, 0, 0.939);
@@ -369,7 +375,7 @@ PARTIE FOOTER --------- */
 .foot_block:nth-child(1){
     /* width: 80%; */
     flex:2 1 35%;
-    /* border: solid 1px darkgray;  */
+    /* border: solid 1px rgb(59, 180, 59);  */
     margin: auto;
     
 }
@@ -394,9 +400,6 @@ PARTIE FOOTER --------- */
     color:rgb(136, 135, 135);
     font-size: 0.8rem;
     width: fit-content;
-}
-.foot_logo{
-    /* background-color: rgb(148, 201, 63); */
 }
 .foot_logo >h1{
     font-family: var(--font3);
@@ -446,6 +449,7 @@ PARTIE FOOTER --------- */
     }
     .home_article_each_text{
         width: 50%;
+      
     }
 }
 
@@ -480,7 +484,7 @@ PARTIE FOOTER --------- */
         align-items:center;
         width: 100%;
         position: static;
-        margin-bottom: 1em;
+        margin-bottom: 2em;
     }
     .home_article_each_image{
         width: 70%;
@@ -491,7 +495,46 @@ PARTIE FOOTER --------- */
         position: static;
     }
     .home_aside{
-        margin: 0 auto; /*Partie ASIDE */
+        /*Partie ASIDE */
+        width: 60%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .foot_container_main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .foot_block{
+       width: 50%;
+       margin: auto;
+       display: flex;
+       flex-direction: column;
+       margin-bottom: 1em;
+    }
+    .foot_logo{
+        margin: 0 auto;
+        /* background-color: brown; */
+        width: fit-content;
+    }
+    .foot_logo >h1{
+        font-size: 2em;
+        /* background-color: coral; */
+        width: fit-content;
+        
+    }
+    .foot_social a{
+        margin-left: 0.1em;
+        font-size: 1rem;
+    }
+    .blocko a, h4{
+       /* background-color: blue; */
+       display:block ;
+       margin: 0 auto;
+    }
+    .foot_block:nth-child(1){
+        margin-bottom: 1em;
+
     }
 }
 /* Cette media querrie est pour les vieux telephones : */
