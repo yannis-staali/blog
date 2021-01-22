@@ -7,40 +7,40 @@
         <?php include_once 'Vue/includes/head.php'?>
     </head>
     
-	<body class="body_home">
-		 <!-- Inclusion du header -->
-		 <?php include_once 'Vue/includes/header.php'?>
+	<body>
 
-        <!-- Main -->
-        <main class="connexion_main"> 
-            <section class="connexion_box_form">
-				<h1>Connexion</h1>
-				<form action="" method="POST">
-					
-					<div class="log_form">
-					<label><b>login</b></label>
-					<input type="text"  name="login">
-					</div>
+		<div class="container_general">
+			<!-- Inclusion du header -->
+			<?php include_once 'Vue/includes/header.php'?>
+				
+			<!-- Main -->
+			<main class="container_main"> 
+				<section class="container_main_block">
+					<form class="container_form" action="" method="POST">	
+						<h1>CONNEXION</h1>
+				
+						<div class="block_send">
+							<label>login</label>
+							<input type="text"  name="login">
+						</div>
+						<div class="block_send">
+							<label>Password</label>
+							<input type="password" name="password">
+						</div>	
+						<div class="block_submit">
+							<input type="submit" name="submit" value="GO">
+						</div>
+					</form>
+				</section>
+			</main>    
 
-					<div class="pass_form">
-					<label><b>Password</b></label>
-					<input type="password" name="password">
-					</div>
-					
-					<div class="submit">
-					<input type="submit" id='submit' name="submit" value="GO">
-					</div>
+			<!--Inclusion du Footer -->
+			<?php include_once 'Vue/includes/footer.php'?>
 
-				</form>
-			</section>
-        </main>    
-
-		 <!--Inclusion du Footer -->
-		 <?php include_once 'Vue/includes/footer.php'?>
-
-		 <!--Inclusion des Scripts -->
-		 <?php //include_once 'Vue/includes/scripts.php'?>        
-        <script src="Assets/js/app.js"></script> 
+				<!--Inclusion des Scripts -->
+				<?php //include_once 'Vue/includes/scripts.php'?>        
+				<script src="Assets/js/app.js"></script> 
+		</div>
     </body>
     
 </html>

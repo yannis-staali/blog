@@ -1,0 +1,89 @@
+.article_container_general{
+    background-image: url('../images/wall.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+
+}
+.article_container_main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}  
+.article_container_each{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 90%;
+    /* background-color: thistle; */
+    margin: 0 auto;
+    margin-top: 2em;
+}
+.article_image_block_id{
+  margin: 0 auto;
+  max-width: 600px;
+}
+.article_image_id{
+    max-width: 100%;
+    border: 1px solid white;
+    box-shadow: 0.4em 0.4em 0.4em #000000, -0.4em -0.4em 0.4em #000000;
+}
+.article_text_id{
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0.1em 0.1em 0.2em var(--color1), -0.1em -0.1em 0.2em var(--color1);
+    padding: 0 0.5em;
+}
+.article_title_id{
+    text-align: center;
+    /* background: chartreuse; */
+    margin-top: 0.5em;
+}
+.article_com_id{
+    /* background-color: darkred; */
+    width: 90%;
+    margin: 0 auto;
+}
+.article_each_com_id{
+    /* background-color: darkorange; */
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0.5em 0;
+    margin-top: 1em;
+    border-top: solid var(--color1) 0.01em;
+    border-left: solid var(--color1) 0.01em;
+    background-color: white;
+    box-shadow: 0.3em 0.3em 0.3em var(--color4);
+}
+.article_block_form{
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    /* background-color: darkmagenta; */
+    margin-bottom: 10em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    padding: 1em;
+    border-top: solid var(--color1) 0.01em;
+    border-left: solid var(--color1) 0.01em;
+    background-color: white;
+    box-shadow: 0.3em 0.3em 0.3em var(--color4);
+}
+.article_form_add_com{
+    display: flex;
+    flex-direction: column;
+
+}
+.article_form_text {
+    /* background-color: darkred; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.article_form_submit{
+    display: flex;
+    justify-content: center;
+}

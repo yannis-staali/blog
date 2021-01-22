@@ -7,48 +7,48 @@
         <?php include_once 'Vue/includes/head.php'?>
     </head>
     
-	<body class="">
-		<!-- Inclusion du header -->
-        <?php include_once 'Vue/includes/header.php'?>
+	<body>
 
-        <main class=""> 
-            <section class="">
-				<h1 class="title_register">MODIFE TON PROFIL</h1>
-				<form action="" method="POST">
+		<div class="container_general">
+			<!-- Inclusion du header -->
+			<?php include_once 'Vue/includes/header.php'?>
+				
+			<!-- Main -->
+			<main class="container_main"> 
+				<section class="container_main_block">
+					<form class="container_form" action="" method="POST">	
+					<h1>MODIFIER LE PROFIL</h1>
 					
-					<div class="">
-					<label><b>login</b></label>
-					<input type="text"  name="login">
-					</div>
+						<div class="block_send">
+							<label>login</label>
+							<input type="text"  name="login">
+						</div>
+						<div class="block_send">
+							<label>Email</label>
+							<input type="text"  name="email">
+						</div>
+						<div class="block_send">
+							<label>Password</label>
+							<input type="password" name="password">
+						</div>	
+						<div class="block_send">
+							<label>Confirm</label>
+							<input type="password" name="password2">
+						</div>		
+						<div class="block_submit">
+							<input type="submit" name="submit" value="GO">
+						</div>
+					</form>
+				</section>
+			</main>    
 
-                    <div class="">
-					<label><b>Email</b></label>
-					<input type="text"  name="email">
-					</div>
+			<!--Inclusion du Footer -->
+			<?php include_once 'Vue/includes/footer.php'?>
 
-					<div class="">
-					<label><b>Password</b></label>
-					<input type="password" name="password">
-					</div>
-                    
-                    <div class="">
-					<label><b>Confirm</b></label>
-					<input type="password" name="password2">
-                    </div>
-                    
-					<div class="">
-					<input type="submit" id='submit' name="submit" value="GO">
-					</div>
-				</form>
-			</section>
-        </main> 
-
-        <!--Inclusion du Footer -->
-        <?php include_once 'Vue/includes/footer.php'?>
-
-        <!--Inclusion des Scripts -->
-		<?php //include_once 'Vue/includes/scripts.php'?>        
-        <script src="Assets/js/app.js"></script> 
+				<!--Inclusion des Scripts -->
+				<?php //include_once 'Vue/includes/scripts.php'?>        
+				<script src="Assets/js/app.js"></script> 
+		</div>
     </body>
     
 </html>

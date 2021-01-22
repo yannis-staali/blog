@@ -1,0 +1,62 @@
+/*  /////\\\\////\\\\////\\\\//////\\\\\/////\\\\\////\\\*/
+/* PAGE GENERIQUE POUR TOUS LES FORMULAIRES-------------/////\\\\\\\\\\\\\\\\\\\\\\\\ */
+/* CLasses de base pour Inscription / Connexion / Profil / creer un article */
+
+.container_general{
+    margin: 0;
+}
+ .container_general::before{
+    position: absolute; 
+    content: '';
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-image: url('../images/wallpaper2.PNG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 10%;
+} 
+.container_main{
+    position: relative;
+    width: 90%;
+    min-height: 80vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.container_main_block{
+    display: flex;
+    flex-basis: 80%;
+    flex-direction: column;
+    margin: 0 auto;  
+    margin-top: 3em;
+    margin-bottom: 3em;
+    align-items: center;
+}
+.container_form > h1{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.container_form{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: solid var(--color1) 0.01em;
+    border-left: solid var(--color1) 0.01em;
+    padding: 0.5em;
+    box-shadow: 0.3em 0.3em 0.3em var(--color4);
+}
+.block_send{
+    width: 100%;
+    display: flex;
+    margin-bottom: 1em;
+}
+.block_send input{
+    margin-left: 1em;
+}
+.block_submit{
+  margin: 0 auto;
+}
+

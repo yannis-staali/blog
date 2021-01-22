@@ -1,0 +1,74 @@
+/* HEADER ET NAV -------------/////\\\\\\\\\\\\\\\\\\\\\\\\ */
+header{
+    min-height: 30vh;
+}
+.logo{
+    font-family: var(--font1);
+    color: var(--color1);
+    font-size: 5rem;
+    text-align: center;
+    text-shadow: -0.07em 0.07em 0.4em rgb(255, 255, 255), 0.04em 0.04em rgb(255, 255, 255);
+    
+ }
+.site_title{
+    background-image: url('../images/japan2.PNG');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.site_title > h1{
+    margin: 0;
+}
+.subtitle{
+    font-weight: 700;
+    color: var(--color2);
+    font-size: .75rem;
+    margin: 0;
+    text-align: center;
+    font-family: var(--font4);
+    font-size: 1.2rem;
+}
+nav a{
+    font-family: var(--font5);
+    color: var(--color1);
+    font-size: 1.5rem;
+}
+.container_nav{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 0 auto; 
+}
+nav ul{
+    list-style: none;
+    padding: 0;
+    display:flex;
+    justify-content: center;
+}
+nav li{
+    margin: 0 2em;
+}
+nav a{
+    padding: .25em 0;
+}
+nav a:hover, nav a:focus{
+    color: var(--color2);
+    border-bottom: 1px solid var(--color2);
+}
+/* specifique NAV */
+@media (max-width:1100px){
+    .container_nav{
+        flex-direction: column; /* Partie HEADER*/
+    }
+    header{
+        text-align: center;
+    }
+    nav ul{
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    nav li{
+        margin:0;
+    }
+}

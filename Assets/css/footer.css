@@ -1,0 +1,123 @@
+/* PARTIE FOOTER ----------------------//////\\\\/////\\\\\/////\\\\\\ */
+.home_footer{
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.foot_container_main{
+    background-color: rgba(0, 0, 0, 0.939);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2em;
+}
+.foot_container_main h4{
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+.foot_container_main p{
+    text-align: left;
+    color:rgb(175, 172, 172);
+    font-size: 0.9rem;
+}
+.foot_block:nth-child(1){
+    flex:2 1 35%;
+    margin: auto;    
+}
+.foot_block:nth-child(2){
+    flex:1 1 12%;
+    flex-direction: column;
+}
+.foot_block:nth-child(3){
+    flex:1 1 12%;
+    flex-direction: column;
+}
+.foot_block:nth-child(4){
+    flex:1 1 12%;
+    flex-direction: column;
+}
+.foot_block a{
+    display: block;
+    margin-bottom: 0.2em;
+    color:rgb(136, 135, 135);
+    font-size: 0.8rem;
+    width: fit-content;
+}
+.foot_logo >h1{
+    font-family: var(--font1);
+    color: var(--color1);
+    font-size: 3.5rem;
+    text-align: center;
+    text-shadow: -0.07em 0.07em 0.4em rgb(255, 255, 255), 0.04em 0.04em rgb(255, 255, 255); 
+    background-image: url('../images/japan2.PNG');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+.foot_social{
+    display: flex;
+    justify-content: center;
+}
+.foot_social a{
+    margin-left: 0.3em;
+    font-size: 2rem;
+    color:#3556DB;
+}
+.foot_block a:hover{
+    color: white;
+}
+.foot_production{
+    background-color: rgba(0, 0, 0, 0.939);
+    color: white;
+    border-top: 0.1em solid white;  
+}
+.foot_production > p{
+    margin: 0;
+    padding: 0.8em;
+    font-size: 0.8rem;
+}
+
+
+/* Specifique FOOTER*/
+@media (max-width:1100px){
+    .foot_container_main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .foot_block{
+       width: 50%;
+       margin: auto;
+       display: flex;
+       flex-direction: column;
+       margin-bottom: 1em;
+    }
+    .foot_logo{
+        margin: 0 auto;
+        /* background-color: brown; */
+        width: fit-content;
+    }
+    .foot_logo >h1{
+        font-size: 2em;
+        /* background-color: coral; */
+        width: fit-content;
+        
+    }
+    .foot_social a{
+        margin-left: 0.1em;
+        font-size: 1rem;
+    }
+    .blocko a, h4{
+       /* background-color: blue; */
+       display:block ;
+       margin: 0 auto;
+    }
+    .foot_block:nth-child(1){
+        margin-bottom: 1em;
+
+    }
+}
