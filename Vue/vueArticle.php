@@ -47,9 +47,10 @@
                             <?php endforeach; ?>
                     </section>
                     
-                    <section class="article_block_form">
+                    
                             <!-- L'ajout de commentaire n'est possible que si l'utilisateur est connecté -->
-                            <?php if($_SESSION['utilisateur']): ?>       
+                            <?php if($_SESSION['utilisateur']): ?>   
+                            <section class="article_block_form">    
                             <!-- formulaire d'ajout de commentaire -->
                             <form class="article_form_add_com" action="" method="POST">
                                 <div class="article_form_text">
@@ -59,9 +60,10 @@
                                 <div class="article_form_submit">
                                     <input type="submit" id='submit' name="submit">
                                 </div>
-				            </form>        
+                            </form>
+                            </section>          
                             <?php endif; ?>
-                    </section>  
+                    
         </main>       
          
 

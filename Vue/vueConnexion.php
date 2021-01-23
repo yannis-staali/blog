@@ -14,7 +14,7 @@
 			<?php include_once 'Vue/includes/header.php'?>
 				
 			<!-- Main -->
-			<main class="container_main"> 
+			<main class="container_main "> 
 				<section class="container_main_block">
 					<form class="container_form" action="" method="POST">	
 						<h1>CONNEXION</h1>

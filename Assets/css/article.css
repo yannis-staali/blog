@@ -10,6 +10,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+    /* margin-bottom: 200px; */
 }  
 .article_container_each{
     display: flex;
@@ -45,6 +46,7 @@
     /* background-color: darkred; */
     width: 90%;
     margin: 0 auto;
+    /* margin-bottom: 100px; */
 }
 .article_each_com_id{
     /* background-color: darkorange; */
