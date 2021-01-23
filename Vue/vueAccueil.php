@@ -13,9 +13,9 @@
             <!-- Inclusion du header -->
             <?php include_once 'Vue/includes/header.php'?>
 
-                <section class="container_intro">    <!-- partie intro du haut -->
+                <section class=" animate__animated animate__fadeIn animate__delay-2s container_intro">    <!-- partie intro du haut -->
                     <!-- <article class="intro_featured"> -->
-                        <img src="Assets/images/blue.png" alt="" class="intro_image">
+                        <img  src="Assets/images/blue.png" alt="" class="intro_image">
                     <!-- </article> -->
                 </section>
 
