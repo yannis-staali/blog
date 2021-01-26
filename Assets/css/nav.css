@@ -54,7 +54,7 @@ nav a{
 }
 nav a:hover, nav a:focus{
     color: var(--color2);
-    border-bottom: 1px solid var(--color2);
+    /* border-bottom: 1px solid var(--color2); */
 }
 /* specifique NAV */
 @media (max-width:1100px){

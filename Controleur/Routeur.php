@@ -72,23 +72,5 @@ class Routeur
                 // $this->ctrlAccueil->route_accueil(); // aucune action définie : affichage de l'accueil
             }
     }
-    
-    // // Affiche une erreur
-    // private function erreur($msgErreur) 
-    // {
-    //     $vue = new Vue("Erreur");
-    //     $vue->generer(array('msgErreur' => $msgErreur));
-    // }
-
-    // Recherche un paramètre dans un tableau
-    private function getParametre($tableau, $nom) 
-    {
-        if (isset($tableau[$nom])) 
-        {
-            return $tableau[$nom];
-        }
-        else
-            throw new Exception("Paramètre '$nom' absent");
-    }
 
 }

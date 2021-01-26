@@ -19,9 +19,7 @@ class ControleurAccueil
     {
         $billets = $this->billet->getBillets();
        
-        // echo'<pre>';
-        // var_dump($billets);
-        // echo'<pre>';
+
         require 'Vue/vueAccueil.php';
     }
 

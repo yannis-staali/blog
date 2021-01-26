@@ -28,13 +28,13 @@ class ControleurProfil
             }
             else 
             {   
-                //mettre des variables intermédiaires
-                $password = htmlspecialchars($_POST['password']);
+                //Variables intermédiaires
+                $hached_pass = password_hash($_POST['password'], PASSWORD_DEFAULT); // hachage
                 $email = htmlspecialchars($_POST['email']);
 
                 $idsession = $_SESSION['utilisateur']['id']; 
-                $check = $user->update($login, $password, $email, $idsession = $_SESSION['utilisateur']['id'], $idsession);   
-                // echo $check;
+                $check = $user->update($login, $hached_pass, $email, $idsession = $_SESSION['utilisateur']['id'], $idsession);   
+           
             }
             
     

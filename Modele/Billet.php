@@ -4,7 +4,7 @@ require_once 'Modele/Modele.php';
 
 
 /**
- *  CETTE CLASSE DEVIENDRA LA CLASSE ARTICLE A LA FIN DE L'IMPLEMENTATION
+ *  Classe qui regroupe toutes les methodes liées à l'affichage des articles du blog
  * 
  */
 class Billet extends Model 

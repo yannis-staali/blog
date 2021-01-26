@@ -36,7 +36,7 @@
                                 if($billet['data'] != '') { 
                                 echo "<img class='image_article' src='display.php?display=$billet[id]'>";
                                 }
-                                else echo "<img src='Assets/images/default.jpg'>"; //200 par 160px     
+                                else echo "<img class='image_article' src='Assets/images/default.jpg'>"; //200 par 160px     
                             ?>
                             </div> <!-- FIN partie image de chaque article \\\\ -->
                             <div class="home_article_each_text"> <!-- partie texte de chaque article -->

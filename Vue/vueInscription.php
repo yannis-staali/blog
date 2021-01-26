@@ -46,7 +46,6 @@
 			<?php include_once 'Vue/includes/footer.php'?>
 
 				<!--Inclusion des Scripts -->
-				<?php //include_once 'Vue/includes/scripts.php'?>        
 				<script src="Assets/js/app.js"></script> 
 		</div>
     </body>

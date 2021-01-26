@@ -27,6 +27,7 @@
 }
 .article_image_id{
     max-width: 100%;
+    max-height: 550px;
     border: 1px solid white;
     box-shadow: 0.4em 0.4em 0.4em #000000, -0.4em -0.4em 0.4em #000000;
 }

@@ -5,19 +5,6 @@ require_once 'Modele/User.php';
 
 class ControleurInscription 
 {
-    // function __construct()
-    // {
-    //     if(isset($_SESSION['utilisateur']));
-    //     {
-    //         header('location: index.php?page=accueil');
-    //     }
-    //     if(!isset($_SESSION['utilisateur']))
-    //     {
-    //         header('location: index.php?page=inscription');
-
-    //     }
-    // }
- 
 
     public function route_inscription() 
     {

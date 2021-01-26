@@ -56,10 +56,16 @@
 .image_block_id_articles{
     margin: 0 auto;
     max-width: 600px;
+   
     /* background-color: lawngreen; */
 }
 .image_id_articles{
     max-width: 100%;
+    max-height: 450px;
+
+    object-fit: cover;
+    object-position: ;
+
     border: 1px solid white;
     box-shadow: 0.4em 0.4em 0.4em #000000, -0.4em -0.4em 0.4em #000000;
 }

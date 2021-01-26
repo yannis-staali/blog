@@ -121,13 +121,17 @@
 }
 .home_article_each_image > img{
     width: 100%;
-    height: 90%;
+    max-height: 300px;
+/* height: auto; */
 
     object-fit: cover; /* NOUVELLE PROPRIETE INCROYABLE*/
     object-position: center;
 
     border: 1px solid white;
     box-shadow: 0.4em 0.4em 0.4em #000000, -0.4em -0.4em 0.4em #000000;
+}
+.image_article{
+    max-height: 300px;
 }
 .home_article_each_image > p{
     text-align: center;

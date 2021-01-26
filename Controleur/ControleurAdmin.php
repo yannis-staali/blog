@@ -20,8 +20,7 @@ class ControleurAdmin
 
     public function route_admin() 
     {
-        //on va faire la suite des 4 if et les requtes associées
-        //if isset(GET [choise] = ex commentaires .... )
+  
         if(isset($_GET['choice']))
         {
 
@@ -37,6 +36,7 @@ class ControleurAdmin
             $delete = $objet-> delete_line($table, $id);
 
             //ajouter un refresh
+            header("Refresh:1; url=index.php?page=admin&choice=$table");
         }
         require 'Vue/vueAdmin.php';
     }

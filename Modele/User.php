@@ -4,16 +4,6 @@ require_once 'Modele/Modele.php';
 
 class User extends Model
 {
-  
-  private $pdo;
-
-      /**
-       * ADAPTATION DE LA CLASSE EN EXTEND DE MODEL
-       */  
-      function __construct() 
-      {
-            // $this->pdo = $db;
-      }
 
       //Partie connexion -------------------------------------------
       public function check_fields() //sert a verifier le formulaire et retourne false si tout est rempli
@@ -257,12 +247,6 @@ class User extends Model
             $sql = "UPDATE utilisateurs SET login = ?, password = ?, email = ?, id_droits = ? WHERE id = ? ";
             $requete = parent::executerRequete($sql, array($login, $password, $email, $iddroits, $idverify)); // on utilise la methode du parent
 
-
-        //   $request2->bindValue(1, $login);
-        //   $request2->bindValue(2, $password);
-        //   $request2->bindValue(3, $idverify);
-        //   $request2->execute();
-         
           return 'Changements effectués';
         }
 }

@@ -21,8 +21,6 @@ class ControleurArticle
        {
             $id = $_GET['id'];
             $billets = $this->billet->showBillet($id);
-            //ici ajouter un appel de methode vers une requete de fetch pour les commentaires avec l'id
-
             $commentaires = $this->billet->showCommentaire($id);
        }
 
@@ -31,7 +29,7 @@ class ControleurArticle
        {
             $coms = htmlspecialchars($_POST['com_sub']);
             $id_article = $_GET['id'];
-            $id_utilisateur = $_SESSION['utilisateur']['id']; //il faudra mettre la $_SESSION ici
+            $id_utilisateur = $_SESSION['utilisateur']['id']; 
             $date =  date("Y-m-d H:i:s");
 
             $insertcom = $this->billet->insert_commentaire($coms, $id_article, $id_utilisateur, $date);
